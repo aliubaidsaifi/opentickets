@@ -5,10 +5,13 @@
 const fs = require('fs'), path = require('path'), cp = require('child_process');
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
-const zip = path.join(root, 'opentickets-redesign.zip');
+let zipName = 'opentickets-redesign.zip';
+let zip = path.join(root, zipName);
 
 fs.rmSync(dist, { recursive: true, force: true });
-fs.rmSync(zip, { force: true });
+// The zip can be locked (open in an uploader / Explorer preview): never let that abort the dist build.
+try { fs.rmSync(zip, { force: true }); }
+catch (e) { zipName = 'opentickets-redesign-' + Date.now() + '.zip'; zip = path.join(root, zipName); console.warn('WARNING: old zip is locked; writing ' + zipName + ' instead'); }
 fs.mkdirSync(dist);
 for (const f of ['index.html', 'event.html', 'faqs.html', 'search.html', 'README.md']) fs.copyFileSync(path.join(root, f), path.join(dist, f));
 fs.cpSync(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: true });
@@ -17,7 +20,7 @@ fs.cpSync(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: tru
 // standard forward-slash entries; PowerShell 5 Compress-Archive writes backslashes, which break on Mac/Linux.
 // Absolute path to Windows' own bsdtar: Git Bash ships a GNU tar that cannot write zips (and treats "G:" as a host).
 const bsdtar = path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'tar.exe');
-cp.execFileSync(bsdtar, ['-a', '-c', '-f', 'opentickets-redesign.zip', '-C', 'dist', '.'], { cwd: root, stdio: 'inherit' });
+cp.execFileSync(bsdtar, ['-a', '-c', '-f', zipName, '-C', 'dist', '.'], { cwd: root, stdio: 'inherit' });
 
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
 const files = walk(dist).map(f => ({ rel: path.relative(dist, f).split(path.sep).join('/'), size: fs.statSync(f).size }));

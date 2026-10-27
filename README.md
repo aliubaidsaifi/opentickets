@@ -217,6 +217,20 @@ In the static demo every hero slide, featured card and event card links to `even
 - **Demo:** `search-results-demo.js` shows 6 results per page (`?q=…&page=N`; an empty query lists all 19 events over 4 pages). In production use `paginate(12)` or similar.
 - **Home page: keep everything on one page for now.** The Isotope filter only sees cards that are in the DOM, so paginating the home grid would silently hide events that are not on the current page from the live filter. That is why `#events-grid` is not paginated here. If the event list grows past roughly 60, add a gold "Show more events" button under the grid that appends the next batch (`iso.appended(newItems)` in the same Alpine component) and, for queries of 3+ characters that are not found in the loaded set, send the visitor to `/search?q=`. Until then, all events on one page is the safest option.
 
+### 6.10 Search filters and sort (search page only)
+
+Under the search box: **All results** (gold when no filter is set), **Date**, **Venue**, **Category** dropdown pills, and **Sort** on the right. Each option is a plain link with GET parameters, so the server renders it with no JavaScript:
+
+```
+search.html?q=fc&date=2026-11&venue=Klub%20600&category=Football&sort=late&page=2
+```
+
+- `q` matches event name or venue (same rule as the live filter), `date` is `YYYY-MM`, `sort` is `soon` (default), `late` or `az`.
+- Blade: loop the options into `<li><a class="dropdown-item {{ $active ? 'active' : '' }}" href="…">`; give the pill `is-active` when its filter is set and put the current value in its label ("Category · Football"). The pagination links must keep the same parameters (`$events->appends(request()->query())->links()`).
+- Demo only: `assets/js/demo/search-results-demo.js` builds the menus and filters the 19 events in `events-data.js`. **Category is inferred from the event name in the demo** (Football, Music, Festival…); in production use your event category field.
+- **Not offered on purpose:** a Price filter (we only have a real price for Appel in PE; no invented prices). Add one when the price data is available.
+- The home page keeps its search-driven Isotope filter exactly as on the live site; these chips exist on the search page only.
+
 ---
 
 ## 7. Recommended Slick options
@@ -290,6 +304,7 @@ Everything else follows the live pages. These are our additions; each can be del
 | Category badge on the ticket-stub line | `.otr-card__badge` | delete the span. **Demo only:** the label (Football, Music, Festival …) is inferred from the event name; in production use your category field |
 | "Why Open Tickets" strip (4 facts from the live FAQs: tickets by email, wallet, secure payment, WhatsApp/FAQ help) | `index.html` `<section class="otr-why">` under `#events-grid` | delete the block |
 | Share row on the event page (WhatsApp, Facebook, copy link) | `event.html` `.otr-event-head__share`; links filled by `OT.share` in `main.js` from `data-share` templates | delete the block (the JS is a no-op without it) |
+| Filter chips + sort on the search page (All results, Date, Venue, Category, Sort) | `search.html` `#otr-filters` | delete the `<div class="otr-filters">` block (see 6.10) |
 | Pagination on the search page | `search.html` `#otr-pagination` | delete the `<nav>` (see 6.9) |
 
 ---
@@ -307,7 +322,7 @@ Headless Chromium (Edge), widths 1440 / 1280 / 1024 / 768 / 390 / 360, all four 
 - No horizontal scroll, zero console errors on every page and width.
 - Home: "chiefs" → 1 card + hero and featured strip collapse; clear → 19 + restored; "fnb" → 1.
 - Event: Book Now (title row, booking panel, mobile bar) opens the modal; Esc closes it.
-- Search: `?q=chiefs` → 1, `?q=fnb` → 1, `?q=zzz` → empty state with 3 suggestions, `?q=` → 19 events over 4 pages with working pagination (page 4 shows 1 card).
+- Search: `?q=chiefs` → 1, `?q=fnb` → 1, `?q=zzz` → empty state with 3 suggestions, `?q=` → 19 events over 4 pages with working pagination (page 4 shows 1 card); filters and sort combine with the query (e.g. `?q=fc&category=Football&sort=late` → 6 results, none → empty state).
 - FAQ: search "password" → 1 question; a nonsense word → no-match state; category card scrolls to and opens its group.
 - Keyboard: every interactive element reachable by Tab shows a visible gold focus ring.
 - Image frames measured: all event frames are 2.689 (1210/450).

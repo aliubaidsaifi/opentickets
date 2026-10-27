@@ -1485,3 +1485,56 @@
 @media (min-width: 768px) {
   #events-grid > .grid-item.col-md-4 { width: 33.3325%; }
 }
+
+
+/* ==========================================================================
+   17. SEARCH FILTER CHIPS + SORT (search.html)
+   "All results" plus Date / Venue / Category dropdown pills and a Sort pill. Every option is a plain
+   link with GET parameters (?q=&date=&venue=&category=&sort=), so the server can render it with no
+   JavaScript: the active option gets .active, the pill gets .is-active. Dropdown behaviour is
+   Bootstrap 5 (data-bs-toggle="dropdown").
+   ========================================================================== */
+.otr-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--otr-space-2);
+  margin-top: var(--otr-space-4);
+}
+.otr-filters__sort { margin-left: auto; }
+.otr-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--otr-space-2);
+  height: 2.5rem;
+  padding: 0 var(--otr-space-3);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border-strong);
+  border-radius: var(--otr-radius-pill);
+  box-shadow: var(--otr-shadow-sm);
+  color: var(--otr-color-text);
+  font-size: var(--otr-fs-sm);
+  font-weight: var(--otr-fw-medium);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--otr-dur-fast) var(--otr-ease), border-color var(--otr-dur-fast) var(--otr-ease), box-shadow var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-chip:hover { border-color: var(--otr-color-accent-deep); color: var(--otr-color-text); box-shadow: var(--otr-shadow-md); }
+.otr-chip i { color: var(--otr-color-accent-deep); }
+.otr-chip.dropdown-toggle::after { margin-left: 0.15rem; }
+
+/* "All results" selected, or a pill whose filter is set: gold */
+.otr-chip.is-active,
+.otr-chip.is-active:hover {
+  background: var(--otr-color-accent);
+  border-color: var(--otr-color-cta-border);
+  color: var(--otr-color-on-cta);
+  font-weight: var(--otr-fw-semibold);
+}
+.otr-chip.is-active i { color: var(--otr-color-on-cta); }
+.otr-filters .dropdown-menu { max-height: 18rem; overflow-y: auto; }
+@media (max-width: 575.98px) {
+  .otr-filters__sort { margin-left: 0; }
+  .otr-filters .otr-chip { height: 2.25rem; }
+}

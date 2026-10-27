@@ -5,11 +5,11 @@
  },
  {
   "rel": "assets/css/components.css",
-  "size": 57364
+  "size": 61743
  },
  {
   "rel": "assets/css/pages.css",
-  "size": 2168
+  "size": 2217
  },
  {
   "rel": "assets/css/variables.css",
@@ -181,7 +181,7 @@
  },
  {
   "rel": "assets/js/demo/events-data.js",
-  "size": 34549
+  "size": 36030
  },
  {
   "rel": "assets/js/demo/isotope.pkgd.min.js",
@@ -193,7 +193,7 @@
  },
  {
   "rel": "assets/js/demo/search-results-demo.js",
-  "size": 4865
+  "size": 9164
  },
  {
   "rel": "assets/js/demo/search-shim.js",
@@ -273,10 +273,10 @@
  },
  {
   "rel": "README.md",
-  "size": 32646
+  "size": 34308
  },
  {
   "rel": "search.html",
-  "size": 21690
+  "size": 24048
  }
 ]
