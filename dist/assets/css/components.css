@@ -685,7 +685,7 @@
 .otr-hero {
   --otr-hero-pad: 0px;
   position: relative;
-  margin: var(--otr-space-4) 0 var(--otr-space-3);
+  margin: var(--otr-space-4) 0 var(--otr-space-2);
 }
 @media (min-width: 768px)  { .otr-hero { --otr-hero-pad: 80px; } }
 @media (min-width: 1200px) { .otr-hero { --otr-hero-pad: 120px; } }
@@ -694,7 +694,7 @@
 .otr-hero:not(.slick-initialized) > .osahan-slider-item:not(:first-child) { display: none; }
 .otr-hero:not(.slick-initialized) { padding: 0 var(--otr-hero-pad); }
 
-.otr-hero .osahan-slider-item { padding: 0 0 var(--otr-space-4); }   /* room for the shadow inside the slick list */
+.otr-hero .osahan-slider-item { padding: 0 0 var(--otr-space-3); }   /* room for the shadow inside the slick list */
 @media (min-width: 768px) { .otr-hero .osahan-slider-item { padding-inline: var(--otr-space-2); } }
 /* Frame = the anchor: exactly 1210:450. A standard banner fills it completely. A non-standard one
    (e.g. 1210x482) is shown whole (contain) over a blurred, darkened copy of itself, set per slide
@@ -805,7 +805,7 @@
    collapses while the user filters. It is NOT inside #events-grid.
    Mobile: horizontal snap strip inside its own box. >=576: 2 columns. >=992: 4.
    ========================================================================== */
-.otr-featured { margin: 0 0 var(--otr-space-4); }
+.otr-featured { margin: 0; }
 .otr-featured__head {
   display: flex;
   align-items: center;
@@ -856,7 +856,7 @@
 @media (min-width: 992px) { .otr-featured__list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 /* Compact variant: shorter body, no datetime line */
-.otr-card--compact { --otr-card-body-h: 108px; }
+.otr-card--compact { --otr-card-body-h: 92px; }
 .otr-card--compact .otr-card__body { gap: var(--otr-space-2); padding: var(--otr-space-3) var(--otr-space-3) var(--otr-space-2); }
 .otr-card--compact .otr-date { flex-basis: 2.75rem; }
 .otr-card--compact .otr-date__day { font-size: var(--otr-fs-2xl); }
@@ -1472,3 +1472,16 @@
   transition: background-color var(--otr-dur-fast) var(--otr-ease), border-color var(--otr-dur-fast) var(--otr-ease), color var(--otr-dur-fast) var(--otr-ease);
 }
 .otr-share__btn:hover { background: var(--otr-color-accent); border-color: var(--otr-color-cta-border); color: var(--otr-color-on-cta); }
+
+
+/* ==========================================================================
+   16. ISOTOPE fitRows ROUNDING GUARD
+   Bootstrap's .col-md-4 / .col-xl-4 are 33.33333333% wide. Isotope's fitRows wraps an item when
+   x + width > container width with NO tolerance, so on some devices (fractional widths, e.g. phones
+   in "desktop site" mode or zoomed pages) 3 x 33.33333333% measures a hair over 100% and the third
+   card drops to the next row, leaving an empty column. Making the grid columns 0.0075% narrower
+   leaves a sub-pixel of slack. Width only: nothing here touches Isotope, Alpine or the layout mode.
+   ========================================================================== */
+@media (min-width: 768px) {
+  #events-grid > .grid-item.col-md-4 { width: 33.3325%; }
+}

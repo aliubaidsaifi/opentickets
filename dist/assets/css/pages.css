@@ -10,7 +10,7 @@
    ========================================================================== */
 
 /* Section heading ("Events"): serif title with a short crimson rule */
-.otr-section-head { margin: var(--otr-space-5) 0 var(--otr-space-4); text-align: center; }
+.otr-section-head { margin: var(--otr-space-4) 0 var(--otr-space-4); text-align: center; }
 .otr-section-title { position: relative; display: inline-block; margin: 0; padding-bottom: var(--otr-space-3); }
 .otr-section-title::after {
   content: "";
