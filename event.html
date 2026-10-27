@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appel in PE — Open Tickets</title>
+  <link rel="icon" href="assets/images/logo/logo-gold.png">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <!-- DEMO ONLY — already provided by the live site, do not deploy -->
+  <link rel="stylesheet" href="assets/js/demo/slick.css">
+  <!-- Theme kit -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="otr-has-nav otr-has-buybar">
+  <a class="otr-skip" href="#main">Skip to content</a>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="otr-nav" id="otr-nav">
+    <div class="otr-nav__inner mx-auto px-3 px-lg-4">
+      <a class="otr-nav__brand" href="index.html" aria-label="Open Tickets home">
+        <img class="otr-nav__logo" src="assets/images/logo/logo-gold.png" alt="Open Tickets" width="286" height="150">
+      </a>
+
+      <form id="otr-nav-search" class="otr-nav__search" action="/search" method="GET" role="search">
+        <div class="otr-search">
+          <input type="text" name="q" id="nav-search-input" class="otr-search__input" placeholder="Search events, teams, venues…" aria-label="Search" autocomplete="off" value="">
+          <button class="otr-search__btn" type="submit" aria-label="Search"><i class="fas fa-search fa-sm" aria-hidden="true"></i></button>
+        </div>
+      </form>
+
+      <nav aria-label="Primary">
+        <ul class="otr-nav__links">
+          <li><a class="otr-nav__link" href="index.html" aria-current="page">Events</a></li>
+          <li><a class="otr-nav__link" href="faqs.html">FAQs</a></li>
+          <li><a class="otr-nav__link" href="https://opentickets.co.za/support">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="dropdown otr-dropdown otr-nav__lang">
+        <button class="otr-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-globe fa-sm" aria-hidden="true"></i><span>English</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item active" href="https://opentickets.co.za/language/en" aria-current="true">English</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/af">Afrikaans</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/zu">isiZulu</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/xh">isiXhosa</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/st">Sesotho</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/fr">Français</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/es">Español</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/pt">Português</a></li>
+        </ul>
+      </div>
+
+      <a class="btn otr-btn otr-btn--gold otr-btn--sm otr-nav__account" href="https://opentickets.co.za/bookings"><i class="far fa-user me-2" aria-hidden="true"></i>My Account</a>
+
+      <div class="otr-nav__actions">
+        <button class="otr-nav__icon-btn" id="otr-search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="otr-nav-search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <button class="otr-nav__icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#otr-offcanvas" aria-controls="otr-offcanvas" aria-label="Open menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="offcanvas offcanvas-end otr-offcanvas" tabindex="-1" id="otr-offcanvas" aria-labelledby="otr-offcanvas-title">
+    <div class="offcanvas-header">
+      <img src="assets/images/logo/logo-gold.png" alt="" width="286" height="150" style="height:2.25rem;width:auto">
+      <h2 class="visually-hidden" id="otr-offcanvas-title">Menu</h2>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="otr-offcanvas__list">
+        <li><a class="otr-offcanvas__link" href="index.html" aria-current="page">Events</a></li>
+        <li><a class="otr-offcanvas__link" href="faqs.html">FAQs</a></li>
+        <li><a class="otr-offcanvas__link" href="https://opentickets.co.za/support">Support</a></li>
+      </ul>
+      <p class="otr-offcanvas__label">Language</p>
+      <ul class="otr-offcanvas__langs"><li><a href="https://opentickets.co.za/language/en" aria-current="true">English</a></li><li><a href="https://opentickets.co.za/language/af">Afrikaans</a></li><li><a href="https://opentickets.co.za/language/zu">isiZulu</a></li><li><a href="https://opentickets.co.za/language/xh">isiXhosa</a></li><li><a href="https://opentickets.co.za/language/st">Sesotho</a></li><li><a href="https://opentickets.co.za/language/de">Deutsch</a></li><li><a href="https://opentickets.co.za/language/fr">Français</a></li><li><a href="https://opentickets.co.za/language/es">Español</a></li><li><a href="https://opentickets.co.za/language/pt">Português</a></li></ul>
+      <a class="btn otr-btn otr-btn--gold w-100 mt-4" href="https://opentickets.co.za/bookings"><i class="far fa-user me-2" aria-hidden="true"></i>My Account</a>
+    </div>
+  </div>
+
+  <main id="main" class="otr-main otr-event container pb-4">
+
+    <!-- EVENT HEADER: poster (1210:450 frame) + date + title + venue + datetime -->
+    <article class="card m-card otr-event-head">
+      <div class="m-card-cover otr-card__cover">
+        <img class="otr-card__fill" src="assets/images/events/appel-in-pe.png" alt="" aria-hidden="true" width="1210" height="450">
+        <img class="otr-card__img" src="assets/images/events/appel-in-pe.png" alt="Appel in PE" width="1210" height="450">
+      </div>
+      <div class="otr-event-head__body">
+        <div class="otr-date">
+                <span class="otr-date__day">06</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+        <div class="otr-event-head__text">
+          <h1 class="otr-event-head__title">Appel in PE</h1>
+          <ul class="otr-event-head__meta">
+            <li><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Boardwalk Hotel and Casino</li>
+            <li class="otr-event-head__when"><i class="far fa-calendar-alt fa-sm" aria-hidden="true"></i>2026-11-06, 21:00</li>
+          </ul>
+        </div>
+        <!-- Compact CTA (md and up). Below md the sticky bottom bar is used. -->
+        <div class="otr-event-head__cta">
+          <div class="otr-event-head__from"><span class="otr-event-head__from-label">From</span><span class="otr-event-head__from-amount">R 250.00</span></div>
+          <button type="button" class="btn otr-btn otr-btn--primary otr-btn--lg" data-bs-toggle="modal" data-bs-target="#otr-seat-modal">Book Now</button>
+        </div>
+      </div>
+      <!-- SHARE — suggested addition. hrefs are filled in by OT.share (main.js) from the data-share templates. -->
+      <div class="otr-event-head__share">
+        <span class="otr-share__label">Share this event</span>
+        <ul class="otr-share">
+          <li><a class="otr-share__btn" href="https://wa.me/" data-share="https://wa.me/?text={title}%20{url}" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+          <li><a class="otr-share__btn" href="https://www.facebook.com/" data-share="https://www.facebook.com/sharer/sharer.php?u={url}" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+          <li><button type="button" class="otr-share__btn" data-copy-link data-copied="Link copied" aria-label="Copy link"><i class="far fa-copy" aria-hidden="true"></i><span>Copy link</span></button></li>
+        </ul>
+        <span class="visually-hidden" role="status" aria-live="polite" data-share-status></span>
+      </div>
+    </article>
+
+    <div class="row mt-4">
+      <div class="col-lg-8">
+        <section class="otr-panel" aria-labelledby="otr-about-title">
+          <h2 class="otr-panel__title" id="otr-about-title">About Appel in PE</h2>
+          <div class="otr-panel__text">
+            <p>Appel is een van die gewildste en mees energieke kunstenaars in Afrikaanse musiek. Met trefferliedjies soos &ldquo;Foute&rdquo;, &ldquo;Nonna&rdquo; en &ldquo;Jagter&rdquo; het hy homself gevestig as &rsquo;n kunstenaar wat gehore laat saam sing en dans van begin tot einde. Sy unieke kombinasie van pop, rock en Afrikaanse hart maak elke vertoning &rsquo;n onvergeetlike ervaring. Moenie Appel se kragtige live show misloop wanneer hy 6 November in Port Elizabeth op die verhoog klim nie &ndash; dit gaan &rsquo;n aand wees vol energie, treffers en groot kuier! Onder 2 &ndash; Gratis (indien op ouer se skoot gesit) Verbode Items Wapens van enige aard Onwettige dwelms of narkotiese middels Glasitems Eie kos en drinkgoed Koelbokse Alkohol wat nie op die perseel aangekoop is nie Verwyderde of beskadigde polsbandjies Oordraagbare polsbandjies Pogings om areas te betree sonder die toepaslike polsbandjie Wanordelike, onrespekvolle of ontwrigtende gedrag Toegelate Items Kos en drinkgoed wat by gemagtigde kosstalletjies aangekoop is Alkohol wat by die venue aangekoop is (streng 18 jaar en ouer, bewys van ouderdom vereis) Geldige polsbandjie wat te alle tye gedra moet word Persoonlike besittings op eie risiko Kinders, mits onder toesig van &rsquo;n verantwoordelike volwassene te alle tye</p>
+          </div>
+        </section>
+
+        <section class="otr-panel" aria-labelledby="otr-location-title">
+          <h2 class="otr-panel__title" id="otr-location-title">Location</h2>
+          <p class="text-body-secondary mb-3"><strong>Boardwalk Hotel and Casino</strong>: Beach R, Gqeberha, 6019, South Africa</p>
+          <div class="otr-map">
+            <iframe title="Map: Boardwalk Hotel and Casino" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDcqMUw8YFuL_9UvRNjwFOBLCSTgxARrxU&amp;q=-33.9821315,25.6547136&amp;zoom=15" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </section>
+      </div>
+
+      <div class="col-lg-4">
+        <aside class="otr-booking" id="otr-book" aria-labelledby="otr-book-title">
+          <div class="otr-notice" role="note"><i class="fas fa-info-circle" aria-hidden="true"></i><div>Please ensure that you have your email address and payment method such as a card, 1Voucher, banking app, etc. ready before you start booking. Once you start you will need those items and you will have limited time to complete your purchase.</div></div>
+          <h2 class="otr-booking__title" id="otr-book-title">Book Now</h2>
+          <p class="otr-booking__label">Available Tickets:</p>
+          <table class="otr-price-table">
+            <thead><tr><th scope="col">Seat Category</th><th scope="col">From</th><th scope="col">To</th></tr></thead>
+            <tbody>
+              <tr><td>Standing Admission</td><td>R 250.00</td><td>R 250.00</td></tr>
+              <tr><td>Reserved Seating</td><td>R 250.00</td><td>R 250.00</td></tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn otr-btn otr-btn--primary otr-btn--lg w-100" data-bs-toggle="modal" data-bs-target="#otr-seat-modal">Book Now</button>
+        </aside>
+      </div>
+    </div>
+
+    <!-- MORE EVENTS — suggested addition (not on the live page); same card component, no Isotope -->
+    <section class="otr-more" aria-labelledby="otr-more-title">
+      <div class="otr-section-head otr-section-head--start">
+        <h2 class="otr-section-title" id="otr-more-title">More events</h2>
+      </div>
+      <ul class="otr-card-list">
+          <li>
+            <div class="card e-card otr-card">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+                  <img class="otr-card__img" src="assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg" alt="Kaizer Chiefs vs TS Galaxy FC (CKC)" width="1210" height="450" loading="lazy">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Football</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">27</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">Kaizer Chiefs vs TS Galaxy FC (CKC)</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>FNB Stadium</p>
+                    <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-27, 19:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="card e-card otr-card">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/going-back-west.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+                  <img class="otr-card__img" src="assets/images/events/going-back-west.png" alt="Going Back West" width="1210" height="450" loading="lazy">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Music</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">07</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">Going Back West</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Tarlton International Raceway</p>
+                    <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-11-07, 13:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="card e-card otr-card">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/kempiefees-2026.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+                  <img class="otr-card__img" src="assets/images/events/kempiefees-2026.jpg" alt="KempieFees 2026" width="1210" height="450" loading="lazy">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Festival</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">31</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">KempieFees 2026</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Hoërskool Kempton Park</p>
+                    <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-31, 12:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Mobile buy bar (below lg only; on desktop the booking panel is sticky) -->
+  <div class="otr-buybar">
+    <div class="otr-buybar__price"><span class="otr-buybar__label">From</span><span class="otr-buybar__amount">R 250.00</span></div>
+    <button type="button" class="btn otr-btn otr-btn--primary" data-bs-toggle="modal" data-bs-target="#otr-seat-modal">Book Now</button>
+  </div>
+
+  <!-- ====================== SELECT A SECTION (live seating dialog, Bootstrap 5 modal) ====================== -->
+  <div class="modal fade otr-modal" id="otr-seat-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-title">Select a Section</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <!-- SEATING MAP SLOT
+                   Where the live venue map (SVG, "Select a Section") sits. Reserved for the follow-up project:
+                   mount the interactive seating map into #otr-seating-map. Keep it empty until then. -->
+              <div id="otr-seating-map" class="otr-seatmap"></div>
+            </div>
+            <div class="col-lg-4">
+              <!-- Sections as buttons. Blade: wire:click="showSection('{{ $section->id }}')" on each (the id is data-section-id here). -->
+              <ul class="otr-sections" aria-label="Sections">
+            <li><button type="button" class="otr-section" data-section-id="01kvfqf27r0k4qbv1spsqttw4v"><span>Block 1</span><i class="fas fa-chevron-right fa-sm" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="otr-section" data-section-id="01kvfp590y4w1dxgvssj3qsjyt"><span>Block 2</span><i class="fas fa-chevron-right fa-sm" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="otr-section" disabled title="This section is not on sale at the moment."><span>Block 3<span class="otr-section__status">This section is not on sale at the moment.</span></span></button></li>
+            <li><button type="button" class="otr-section" disabled title="This section is not on sale at the moment."><span>Block 4<span class="otr-section__status">This section is not on sale at the moment.</span></span></button></li>
+            <li><button type="button" class="otr-section" disabled title="This section is not on sale at the moment."><span>Block 5<span class="otr-section__status">This section is not on sale at the moment.</span></span></button></li>
+            <li><button type="button" class="otr-section" data-section-id="01kzv6ay6cadfjdmy4cmr564p5"><span>Block 6</span><i class="fas fa-chevron-right fa-sm" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="otr-section" data-section-id="01kzv6d7rdqafdr6a7ym2b7k8x"><span>Block 7</span><i class="fas fa-chevron-right fa-sm" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="otr-section" disabled title="This section is not on sale at the moment."><span>Block 8<span class="otr-section__status">This section is not on sale at the moment.</span></span></button></li>
+            <li><button type="button" class="otr-section" data-section-id="01m4dn8r2eh4z7cfv1cw06kqe1"><span>Boardwalk Unreserved</span><i class="fas fa-chevron-right fa-sm" aria-hidden="true"></i></button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn otr-btn otr-btn--secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="otr-footer">
+    <span class="otr-footer__wordmark" aria-hidden="true">Open Tickets</span>
+    <div class="otr-footer__inner container">
+      <a class="otr-footer__brand" href="index.html" aria-label="Open Tickets home"><img class="otr-footer__logo" src="assets/images/logo/logo-gold.png" alt="Open Tickets" width="286" height="150" loading="lazy"></a>
+      <div class="row gx-4 gy-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Get In Touch</h2>
+          <ul class="otr-footer__social">
+            <li><a href="https://www.instagram.com/opentickets" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/opentickets" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/OpenTicketsZA" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="https://wa.me/27873307575" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Support</h2>
+          <ul class="otr-footer__list">
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/support"><i class="fas fa-life-ring" aria-hidden="true"></i>Support</a></li>
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/plugins"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>CMS Plugins</a></li>
+            <li><a class="otr-footer__link" href="faqs.html"><i class="fas fa-question-circle" aria-hidden="true"></i>FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Legal</h2>
+          <ul class="otr-footer__list">
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/page/privacy-policy" target="_blank" rel="noopener"><i class="fas fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/page/terms-and-conditions" target="_blank" rel="noopener"><i class="fas fa-angle-right" aria-hidden="true"></i>Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Language</h2>
+          <div class="dropdown dropup otr-dropdown">
+            <button class="otr-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span>English</span></button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="https://opentickets.co.za/language/en" aria-current="true">English</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/af">Afrikaans</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/zu">isiZulu</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/xh">isiXhosa</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/st">Sesotho</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/fr">Français</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/es">Español</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/pt">Português</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="otr-footer__bottom mb-0"><i class="far fa-copyright me-1" aria-hidden="true"></i>2024-2026 - <a href="https://opentickets.co.za">Open Tickets</a> - All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ====================== CHAT BUTTON ====================== -->
+  <div class="otr-chat ot-chatbot ot-chatbot--floating">
+    <button type="button" class="otr-chat__launcher ot-chatbot__launcher btn btn-primary rounded-circle shadow" aria-label="Open chat">
+      <i class="fas fa-comments" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- Production scripts -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- DEMO ONLY — already provided by the live site, do not deploy. (Search shim: Enter goes to search.html?q=...) -->
+  <script src="assets/js/demo/search-shim.js" defer></script>
+</body>
+</html>

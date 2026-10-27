@@ -1,0 +1,282 @@
+[
+ {
+  "rel": "assets/css/base.css",
+  "size": 8403
+ },
+ {
+  "rel": "assets/css/components.css",
+  "size": 57364
+ },
+ {
+  "rel": "assets/css/pages.css",
+  "size": 2168
+ },
+ {
+  "rel": "assets/css/variables.css",
+  "size": 8774
+ },
+ {
+  "rel": "assets/fonts/inter-latin-400-normal.woff2",
+  "size": 23664
+ },
+ {
+  "rel": "assets/fonts/inter-latin-500-normal.woff2",
+  "size": 24272
+ },
+ {
+  "rel": "assets/fonts/inter-latin-600-normal.woff2",
+  "size": 24452
+ },
+ {
+  "rel": "assets/fonts/inter-latin-ext-400-normal.woff2",
+  "size": 35000
+ },
+ {
+  "rel": "assets/fonts/inter-latin-ext-500-normal.woff2",
+  "size": 36024
+ },
+ {
+  "rel": "assets/fonts/inter-latin-ext-600-normal.woff2",
+  "size": 36260
+ },
+ {
+  "rel": "assets/fonts/playfair-display-latin-600-normal.woff2",
+  "size": 23228
+ },
+ {
+  "rel": "assets/fonts/playfair-display-latin-700-normal.woff2",
+  "size": 23224
+ },
+ {
+  "rel": "assets/fonts/playfair-display-latin-ext-600-normal.woff2",
+  "size": 12880
+ },
+ {
+  "rel": "assets/fonts/playfair-display-latin-ext-700-normal.woff2",
+  "size": 12904
+ },
+ {
+  "rel": "assets/images/banners/appel-in-pe-banner.png",
+  "size": 626656
+ },
+ {
+  "rel": "assets/images/banners/durban-city-fc-vs-stellenbosch-fc-banner.jpg",
+  "size": 714788
+ },
+ {
+  "rel": "assets/images/banners/faq-hero.png",
+  "size": 556835
+ },
+ {
+  "rel": "assets/images/banners/going-back-west-banner.png",
+  "size": 1026332
+ },
+ {
+  "rel": "assets/images/banners/kaizer-chiefs-vs-ts-galaxy-fc-banner.jpg",
+  "size": 729251
+ },
+ {
+  "rel": "assets/images/banners/mamelodi-sundowns-vs-durban-city-banner.jpg",
+  "size": 148328
+ },
+ {
+  "rel": "assets/images/banners/mamelodi-sundowns-vs-marumo-gallants-banner.jpg",
+  "size": 748344
+ },
+ {
+  "rel": "assets/images/banners/orlando-pirates-vs-milford-fc-banner.jpg",
+  "size": 741640
+ },
+ {
+  "rel": "assets/images/events/appel-in-pe.png",
+  "size": 626656
+ },
+ {
+  "rel": "assets/images/events/black-swan-africa-extravaganza.png",
+  "size": 202450
+ },
+ {
+  "rel": "assets/images/events/durban-city-fc-vs-stellenbosch-fc.jpg",
+  "size": 714788
+ },
+ {
+  "rel": "assets/images/events/going-back-west.png",
+  "size": 1026332
+ },
+ {
+  "rel": "assets/images/events/help24-somer-fees.png",
+  "size": 1236304
+ },
+ {
+  "rel": "assets/images/events/isr-massa-aflos.jpg",
+  "size": 81856
+ },
+ {
+  "rel": "assets/images/events/isr-sewes-en-hoops.png",
+  "size": 527615
+ },
+ {
+  "rel": "assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg",
+  "size": 729251
+ },
+ {
+  "rel": "assets/images/events/kempiefees-2026.jpg",
+  "size": 255110
+ },
+ {
+  "rel": "assets/images/events/klub-600-2026-lede-aansluiting-hernuwing.jpg",
+  "size": 183664
+ },
+ {
+  "rel": "assets/images/events/kruger-united-fc-vs-amazulu-fc.jpg",
+  "size": 694329
+ },
+ {
+  "rel": "assets/images/events/mamelodi-sundowns-vs-durban-city.jpg",
+  "size": 148328
+ },
+ {
+  "rel": "assets/images/events/mamelodi-sundowns-vs-marumo-gallants.jpg",
+  "size": 748344
+ },
+ {
+  "rel": "assets/images/events/orlando-pirates-fc-2026-27-season-ticket.jpg",
+  "size": 57801
+ },
+ {
+  "rel": "assets/images/events/orlando-pirates-vs-milford-fc.jpg",
+  "size": 741640
+ },
+ {
+  "rel": "assets/images/events/prg-senior-old-boys-ete-lunch-2026.png",
+  "size": 749618
+ },
+ {
+  "rel": "assets/images/events/sekhukhune-united-fc-vs-richards-bay-fc.jpg",
+  "size": 750873
+ },
+ {
+  "rel": "assets/images/events/the-sa-4x4-and-outdoor-show-sun.jpg",
+  "size": 175510
+ },
+ {
+  "rel": "assets/images/events/the-sa-4x4-and-outdoor-show-weekend.jpg",
+  "size": 179641
+ },
+ {
+  "rel": "assets/images/logo/logo-gold.png",
+  "size": 6319
+ },
+ {
+  "rel": "assets/images/logo/logo-icon.png",
+  "size": 10693
+ },
+ {
+  "rel": "assets/js/demo/alpine-collapse.min.js",
+  "size": 1518
+ },
+ {
+  "rel": "assets/js/demo/alpine.min.js",
+  "size": 44729
+ },
+ {
+  "rel": "assets/js/demo/events-data.js",
+  "size": 34549
+ },
+ {
+  "rel": "assets/js/demo/isotope.pkgd.min.js",
+  "size": 35515
+ },
+ {
+  "rel": "assets/js/demo/jquery.min.js",
+  "size": 87603
+ },
+ {
+  "rel": "assets/js/demo/search-results-demo.js",
+  "size": 4865
+ },
+ {
+  "rel": "assets/js/demo/search-shim.js",
+  "size": 1550
+ },
+ {
+  "rel": "assets/js/demo/slick-init.js",
+  "size": 2043
+ },
+ {
+  "rel": "assets/js/demo/slick.css",
+  "size": 1846
+ },
+ {
+  "rel": "assets/js/demo/slick.min.js",
+  "size": 42933
+ },
+ {
+  "rel": "assets/js/faq.js",
+  "size": 4244
+ },
+ {
+  "rel": "assets/js/main.js",
+  "size": 5677
+ },
+ {
+  "rel": "assets/js/search.js",
+  "size": 1207
+ },
+ {
+  "rel": "assets/vendor/bootstrap/css/bootstrap.min.css",
+  "size": 232803
+ },
+ {
+  "rel": "assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+  "size": 80721
+ },
+ {
+  "rel": "assets/vendor/fontawesome/css/all.min.css",
+  "size": 59305
+ },
+ {
+  "rel": "assets/vendor/fontawesome/webfonts/fa-brands-400.woff",
+  "size": 89988
+ },
+ {
+  "rel": "assets/vendor/fontawesome/webfonts/fa-brands-400.woff2",
+  "size": 76736
+ },
+ {
+  "rel": "assets/vendor/fontawesome/webfonts/fa-regular-400.woff",
+  "size": 16276
+ },
+ {
+  "rel": "assets/vendor/fontawesome/webfonts/fa-regular-400.woff2",
+  "size": 13224
+ },
+ {
+  "rel": "assets/vendor/fontawesome/webfonts/fa-solid-900.woff",
+  "size": 101648
+ },
+ {
+  "rel": "assets/vendor/fontawesome/webfonts/fa-solid-900.woff2",
+  "size": 78268
+ },
+ {
+  "rel": "event.html",
+  "size": 25807
+ },
+ {
+  "rel": "faqs.html",
+  "size": 39509
+ },
+ {
+  "rel": "index.html",
+  "size": 56555
+ },
+ {
+  "rel": "README.md",
+  "size": 32646
+ },
+ {
+  "rel": "search.html",
+  "size": 21690
+ }
+]

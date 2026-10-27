@@ -1,0 +1,487 @@
+tickets<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <meta name="csrf-token" content="cL6cU9Sx0PX9n1Xewg6qzm7ZttOXyJYF3vhOqZ2F">
+            
+      <link rel="icon" type="image/png" href="https://opentickets.co.za/favicon.png">
+      <title>Open Tickets</title>
+      
+      <!-- Slick Slider -->
+      <link rel="stylesheet" type="text/css" href="https://opentickets.co.za/themes/bookishow/slick.min.css"/>
+      <link rel="stylesheet" type="text/css" href="https://opentickets.co.za/themes/bookishow/slick-theme.min.css"/>
+      <!-- Custom fonts for this template-->
+      <link href="https://opentickets.co.za/themes/bookishow/all.min.css" rel="stylesheet" type="text/css">
+      <!-- Custom styles for this template-->
+      <link href="https://opentickets.co.za/themes/bookishow/osahan.min.css" rel="stylesheet">
+      
+      <link rel="preload" as="style" href="https://opentickets.co.za/build/assets/app-KEDqvZM5.css" /><link rel="modulepreload" as="script" href="https://opentickets.co.za/build/assets/app-C80BBARm.js" /><link rel="stylesheet" href="https://opentickets.co.za/build/assets/app-KEDqvZM5.css" data-navigate-track="reload" /><script type="module" src="https://opentickets.co.za/build/assets/app-C80BBARm.js" data-navigate-track="reload"></script>      
+      <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+   </head>
+   <body id="page-top">
+      <!-- Page Wrapper -->
+      <div id="wrapper">
+         <!-- Sidebar -->
+         <ul wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;myoGcgto3K4QxSgpcqWt&quot;,&quot;name&quot;:&quot;sidebar&quot;,&quot;path&quot;:&quot;faq\/tickets-purchasing&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;7a81d2b6d2fdc20af535d5c7763f374ab54b12f11f2353d4ebf60395b90227d3&quot;}" wire:effects="[]" wire:id="myoGcgto3K4QxSgpcqWt" class="navbar-nav sidebar sidebar-dark accordion toggled text-left" id="accordionSidebar">
+   <!-- Sidebar - Brand -->
+   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://opentickets.co.za">
+      <div class="sidebar-brand-icon">
+         <img src="https://opentickets.co.za/themes/bookishow/logo-icon.png" alt="" class="img-fluid">
+      </div>
+   </a>
+   <li class="nav-item d-md-none ">
+      <a class="nav-link" href="https://opentickets.co.za/search">
+      <i class="fas fa-fw fa-search"></i>
+      <span>Search</span></a>
+   </li>
+   <!-- Nav Item - Dashboard -->
+   <li class="nav-item active">
+      <a class="nav-link" href="https://opentickets.co.za">
+      <i class="fas fa-fw fa-glass-cheers"></i>
+      <span>Events</span></a>
+   </li>
+   <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->   <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->   <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->   
+   <li class="nav-item">
+      <a class="nav-link" href="https://opentickets.co.za/faq">
+      <i class="fas fa-fw fa-question-circle"></i>
+      <span>FAQs</span></a>
+   </li>
+
+   <li class="nav-item">
+      <a class="nav-link" href="https://opentickets.co.za/support">
+      <i class="fas fa-fw fa-life-ring"></i>
+      <span>Support</span></a>
+   </li>
+
+   <!--[if BLOCK]><![endif]-->   <li class="nav-item ">
+      <a class="nav-link" href="https://opentickets.co.za/bookings">
+      <i class="fas fa-fw fa-user"></i>
+      <span>My Account</span></a>
+   </li>
+   <!--[if ENDBLOCK]><![endif]-->
+   <!-- Divider -->
+   <hr class="sidebar-divider">
+   <!-- Heading -->
+   <div class="sidebar-heading">Content</div>
+   <!-- Nav Item - Pages Collapse Menu -->
+   <li class="nav-item" x-data="{ open: false }">
+      <a class="nav-link" href="#" @click.prevent="open = !open" :class="{ 'collapsed': !open }">
+         <i class="fas fa-fw fa-pager"></i>
+         <span>Pages</span>
+      </a>
+      <div x-show="open" style="display:none;">
+         <!--[if BLOCK]><![endif]-->             <a class="nav-link py-1" style="padding-left: 3rem;" href="https://opentickets.co.za/page/privacy-policy">
+                <i class="fas fa-fw fa-angle-right fa-xs"></i>
+                <span>Privacy</span>
+             </a>
+                      <a class="nav-link py-1" style="padding-left: 3rem;" href="https://opentickets.co.za/page/terms-and-conditions">
+                <i class="fas fa-fw fa-angle-right fa-xs"></i>
+                <span>Terms</span>
+             </a>
+         <!--[if ENDBLOCK]><![endif]-->      </div>
+   </li>
+
+   <li class="nav-item ">
+      <a class="nav-link" href="https://opentickets.co.za/customers">
+      <i class="fas fa-fw fa-users"></i>
+      <span>Customers</span></a>
+   </li>
+</ul>         <!-- End of Sidebar -->
+         
+         <!-- Content Wrapper -->
+         <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+               <!-- Topbar -->
+               <nav wire:snapshot="{&quot;data&quot;:[],&quot;memo&quot;:{&quot;id&quot;:&quot;0Y0jVHFPsxcSDbV0lpl7&quot;,&quot;name&quot;:&quot;layout.navigation&quot;,&quot;path&quot;:&quot;faq\/tickets-purchasing&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;bcc5c0eac70c6377ad806222385a020b3ab3be619897809e404435423bfb885e&quot;}" wire:effects="[]" wire:id="0Y0jVHFPsxcSDbV0lpl7" class="navbar navbar-expand navbar-dark topbar mb-4 pl-0 static-top shadow">
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+    <i class="fa fa-bars"></i>
+    </button>
+    <!-- Topbar Search -->
+    <form action="https://opentickets.co.za/search" method="GET" class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
+       <div class="input-group">
+          <input type="text" name="q" id="nav-search-input" class="form-control bg-white border-0 small" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2" value="">
+          <div class="input-group-append">
+             <button class="btn bg-white" type="button">
+             <i class="fas fa-search fa-sm"></i>
+             </button>
+          </div>
+       </div>
+    </form>
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+       <!-- Language Switcher -->
+       <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle text-gray-600 small" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <i class="fas fa-globe fa-sm mr-1"></i>
+             Language: English
+          </a>
+          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="languageDropdown">
+             <!--[if BLOCK]><![endif]-->                <a class="dropdown-item active" href="https://opentickets.co.za/language/en">
+                   English
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/af">
+                   Afrikaans
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/zu">
+                   isiZulu
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/xh">
+                   isiXhosa
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/st">
+                   Sesotho
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/de">
+                   Deutsch
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/fr">
+                   Français
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/es">
+                   Español
+                </a>
+                             <a class="dropdown-item " href="https://opentickets.co.za/language/pt">
+                   Português
+                </a>
+             <!--[if ENDBLOCK]><![endif]-->          </div>
+       </li>
+       <!--[if BLOCK]><![endif]-->       
+       <!--[if ENDBLOCK]><![endif]-->    </ul>
+</nav>               <!-- End of Topbar -->
+               
+               <!-- Begin Page Content -->
+               <div class="container-fluid">
+                   <div wire:snapshot="{&quot;data&quot;:{&quot;slug&quot;:&quot;tickets-purchasing&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;JLyeLLMhL8cjO1TuyjZ1&quot;,&quot;name&quot;:&quot;faq.show&quot;,&quot;path&quot;:&quot;faq\/tickets-purchasing&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:{&quot;lw-2805886743-0&quot;:[&quot;div&quot;,&quot;2qFuGKZlgp1zL0hjMbhy&quot;]},&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;1c86b99ac7672431dd46a9999d7940f2aaa947e943e627c548cbca39cc0c0152&quot;}" wire:effects="[]" wire:id="JLyeLLMhL8cjO1TuyjZ1" wire:snapshot="{&quot;data&quot;:{&quot;slug&quot;:&quot;tickets-purchasing&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;2qFuGKZlgp1zL0hjMbhy&quot;,&quot;name&quot;:&quot;volt-anonymous-fragment-eyJuYW1lIjoidm9sdC1hbm9ueW1vdXMtZnJhZ21lbnQtMTY2NTAzMzFhOTA0MTQzNmRjYThiYTNiMjViYTc1NTYiLCJwYXRoIjoicmVzb3VyY2VzXC92aWV3c1wvdGhlbWVzXC9ib29raXNob3dcL3BhZ2VzXC9mYXFcL3Nob3cuYmxhZGUucGhwIn0=&quot;,&quot;path&quot;:&quot;faq\/tickets-purchasing&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;59041bf623e3c0afcb9d0dae5303c03b73dd686b4df9518f1a301e6898165f22&quot;}" wire:effects="[]" wire:id="2qFuGKZlgp1zL0hjMbhy" class="py-5">
+    <div class="container">
+    <div class="container">
+        <div class="mb-4">
+             <div class="w-full relative overflow-hidden z-0 h-[300px]" style="height: 300px;" x-data="{ offset: 0 }" @scroll.window="offset = window.pageYOffset">
+    <img src="https://opentickets.co.za/images/hero-faqs.png" 
+         alt="Tickets &amp; Purchasing" 
+         class="absolute top-0 left-0 w-full object-cover object-center pointer-events-none"
+         style="height: 120%; top: -10%;"
+         x-bind:style="'transform: translateY(' + (offset * 0.5) + 'px)'">
+         
+    <div class="absolute inset-0 h-full w-full bg-black bg-opacity-40 flex items-center justify-center z-10">
+        <h1 class="text-4xl md:text-5xl font-bold text-white tracking-wider text-center" style="font-family: 'Roboto', sans-serif;">
+            TICKETS &amp; PURCHASING
+        </h1>
+    </div>
+</div>
+        </div>
+
+        <div class="d-flex align-items-center mb-4">
+            <a href="https://opentickets.co.za/faq" wire:navigate class="btn btn-link pl-0 text-muted">
+                <i class="fas fa-arrow-left mr-2"></i> Back to FAQ Categories
+            </a>
+        </div>
+
+        <div class="accordion shadow border-0" id="faqAccordion">
+            <!--[if BLOCK]><![endif]-->            <div class="card border-0 mb-1">
+                <div class="card-header bg-white border-bottom-0 p-3" id="heading0">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark font-weight-bold text-left d-block w-100 collapsed" type="button" data-toggle="collapse" data-target="#collapse0" aria-expanded="false" aria-controls="collapse0">
+                            How can I book tickets?
+                            <i class="fas fa-chevron-down float-right mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapse0" class="collapse" aria-labelledby="heading0" data-parent="#faqAccordion">
+                    <div class="card-body text-gray-600 pl-4 py-3">
+                        To book tickets, please locate the event you would like to attend, select the number of tickets you wish to purchase, and add them to your cart.<br />
+<br />
+If the event has allocated seating, please select your preferred seat(s) and the ticket category/price option you would like to purchase before adding them to your cart.<br />
+<br />
+Once you are ready, click Checkout, enter your details, and then click Purchase. You will be redirected to our secure online payment page to complete your transaction.<br />
+<br />
+Once payment has been successfully processed, your tickets will be sent to the email address provided during checkout.
+                    </div>
+                </div>
+            </div>
+                        <div class="card border-0 mb-1">
+                <div class="card-header bg-white border-bottom-0 p-3" id="heading1">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-dark font-weight-bold text-left d-block w-100 collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                            Are there any tickets left for the event?
+                            <i class="fas fa-chevron-down float-right mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#faqAccordion">
+                    <div class="card-body text-gray-600 pl-4 py-3">
+                        If you are able to select a ticket and add it to your cart, tickets are still available for purchase. Please note that we do not display the number of tickets remaining for an event.
+                    </div>
+                </div>
+            </div>
+            <!--[if ENDBLOCK]><![endif]-->        </div>
+
+        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->    </div>
+</div>
+                                  </div>
+               <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+            
+            <footer class="sidebar-dark mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Get In Touch -->
+            <div class="flex flex-col">
+                <h4 class="mb-4 text-white text-lg font-semibold">Get In Touch</h4>
+                <div class="flex items-center space-x-2">
+                    <!-- i class="fas fa-share text-gray-400 mr-2"></i -->
+                    <a class="w-9 h-9 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-300" href="https://www.instagram.com/opentickets.za/" target="_blank">
+                        <i class="fab fa-instagram !text-white"></i>
+                    </a>
+                    <a class="w-9 h-9 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-300" href="https://www.linkedin.com/company/open-tickets" target="_blank">
+                        <i class="fab fa-linkedin-in !text-white"></i>
+                    </a>
+                    <a class="w-9 h-9 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-300" href="https://www.facebook.com/OpenTicketsZA" target="_blank">
+                        <i class="fab fa-facebook-f !text-white"></i>
+                    </a>
+                    <a class="w-9 h-9 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-300" href="https://wa.me/27873307575" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp !text-white"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Support -->
+            <div class="flex flex-col">
+                <h4 class="mb-4 text-white text-lg font-semibold">Support</h4>
+                <a href="https://opentickets.co.za/support" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center mb-2 group">
+                    <span class="w-6 text-center text-gray-400 group-hover:text-white mr-3">
+                        <i class="fas fa-life-ring"></i>
+                    </span>
+                     <span>Support</span>
+                </a>
+                <a href="https://opentickets.co.za/plugins" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center mb-2 group">
+                    <span class="w-6 text-center text-gray-400 group-hover:text-white mr-3">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </span>
+                     <span>CMS Plugins</span>
+                </a>
+                <a href="https://opentickets.co.za/faq" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                    <span class="w-6 text-center text-gray-400 group-hover:text-white mr-3">
+                        <i class="fas fa-question-circle"></i>
+                    </span>
+                    <span>FAQs</span>
+                </a>
+            </div>
+
+            <!-- Legal -->
+            <div class="flex flex-col">
+                <h4 class="mb-4 text-white text-lg font-semibold">Legal</h4>
+                <a href="/page/privacy-policy" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center mb-2 group">
+                    <span class="w-6 text-center text-gray-400 group-hover:text-white mr-3">
+                        <i class="fas fa-angle-right"></i>
+                    </span>
+                     <span>Privacy Policy</span>
+                </a>
+                <a href="/page/terms-and-conditions" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                    <span class="w-6 text-center text-gray-400 group-hover:text-white mr-3">
+                        <i class="fas fa-angle-right"></i>
+                    </span>
+                    <span>Terms and Conditions</span>
+                </a>
+            </div>
+
+            <!-- Language Switcher -->
+            <div class="flex flex-col">
+                <h4 class="mb-4 text-white text-lg font-semibold">Language</h4>
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" @click.away="open = false" class="flex items-center text-gray-400 hover:text-white focus:outline-none">
+                        <span class="mr-2">English</span>
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                        </svg>
+                    </button>
+                    <div x-show="open" class="absolute z-50 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1" style="display: none;">
+                                                    <a href="https://opentickets.co.za/language/en" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                English
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/af" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Afrikaans
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/zu" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                isiZulu
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/xh" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                isiXhosa
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/st" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Sesotho
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/de" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Deutsch
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/fr" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Français
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/es" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Español
+                            </a>
+                                                    <a href="https://opentickets.co.za/language/pt" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Português
+                            </a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="mt-8 pt-8 text-center" style="border-top: 1px solid rgba(255, 255, 255, .15)">
+            <p class="text-gray-400 text-sm">
+                <i class="fas fa-copyright me-2"></i>2024-2026 - 
+                <a class="text-white hover:underline" href="https://opentickets.co.za">Open Tickets</a> - All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+         </div>
+         <!-- End of Content Wrapper -->
+      </div>
+      <!-- End of Page Wrapper -->
+      
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+      </a>
+      
+      <!-- Bootstrap core JavaScript-->
+      <script src="https://opentickets.co.za/themes/bookishow/jquery.min.js"></script>
+      <script src="https://opentickets.co.za/themes/bookishow/bootstrap.bundle.min.js"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="https://opentickets.co.za/themes/bookishow/jquery.easing.min.js"></script>
+      <!-- slick Slider JS-->
+      <script src="https://opentickets.co.za/themes/bookishow/slick.min.js"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="https://opentickets.co.za/themes/bookishow/osahan.min.js"></script>
+
+               <div wire:snapshot="{&quot;data&quot;:{&quot;variant&quot;:&quot;floating&quot;,&quot;open&quot;:false,&quot;input&quot;:&quot;&quot;,&quot;messages&quot;:[[[{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;Hi! I can help with FAQs and upcoming events. Ask me a question.&quot;,&quot;at&quot;:&quot;2026-10-25T19:23:40+00:00&quot;},{&quot;s&quot;:&quot;arr&quot;}]],{&quot;s&quot;:&quot;arr&quot;}],&quot;awaitingEscalation&quot;:false,&quot;escalationSent&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;email&quot;:&quot;&quot;,&quot;escalationMessage&quot;:&quot;&quot;,&quot;error&quot;:null},&quot;memo&quot;:{&quot;id&quot;:&quot;moEcpK2zdSmC9TlvhbKl&quot;,&quot;name&quot;:&quot;chatbot&quot;,&quot;path&quot;:&quot;faq\/tickets-purchasing&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;718d9f462c6cab0723a01e49a17c1043e14032b7f9e2f394ab2c7877b3c65a04&quot;}" wire:effects="[]" wire:id="moEcpK2zdSmC9TlvhbKl"
+    class="ot-chatbot ot-chatbot--floating"
+    wire:key="chatbot-floating"
+>
+    <!--[if BLOCK]><![endif]-->        <button
+            type="button"
+            class="ot-chatbot__launcher btn btn-primary rounded-circle shadow"
+            wire:click="toggle"
+            aria-label="Open chat"
+        >
+            <i class="fas fa-comments"></i>
+        </button>
+    <!--[if ENDBLOCK]><![endif]-->
+    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+    <style>
+        .ot-chatbot--floating {
+            position: fixed;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.75rem;
+        }
+        .ot-chatbot__launcher {
+            width: 3.25rem;
+            height: 3.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ot-chatbot--floating .ot-chatbot__panel {
+            width: min(24rem, calc(100vw - 2rem));
+            max-height: min(70vh, 36rem);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .ot-chatbot--embedded .ot-chatbot__panel {
+            width: 100%;
+            min-height: 28rem;
+            max-height: min(70vh, 40rem);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .ot-chatbot__body {
+            overflow-y: auto;
+            flex: 1 1 auto;
+            min-height: 0;
+            background: #f8f9fc;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .ot-chatbot__escalate,
+        .ot-chatbot__composer {
+            flex: 0 0 auto;
+        }
+        .ot-chatbot__bubble {
+            max-width: 90%;
+            padding: 0.65rem 0.85rem;
+            border-radius: 0.75rem;
+            word-break: break-word;
+            font-size: 0.9rem;
+        }
+        .ot-chatbot__bubble a {
+            color: inherit;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .ot-chatbot__bubble--user a {
+            color: #fff;
+        }
+        .ot-chatbot__bubble--assistant a {
+            color: #4e73df;
+        }
+        .ot-chatbot__bubble--assistant {
+            align-self: flex-start;
+            background: #fff;
+            border: 1px solid #e3e6f0;
+        }
+        .ot-chatbot__bubble--user {
+            align-self: flex-end;
+            background: #4e73df;
+            color: #fff;
+        }
+        .ot-chatbot__composer form,
+        .ot-chatbot__composer .d-flex {
+            gap: 0.5rem;
+        }
+        .ot-chatbot__composer .d-flex {
+            display: flex !important;
+        }
+        .ot-chatbot__composer .form-control {
+            flex: 1 1 auto;
+        }
+    </style>
+</div>      
+      
+      <script src="/livewire/livewire.min.js?id=5ef5bc0a"   data-csrf="cL6cU9Sx0PX9n1Xewg6qzm7ZttOXyJYF3vhOqZ2F" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+                  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('nav-search-input');
+            if(searchInput) {
+                searchInput.addEventListener('keyup', (e) => {
+                    const query = e.target.value;
+                    if(query.length >= 3 || query.length === 0) {
+                        window.dispatchEvent(new CustomEvent('filter-grid', { detail: query }));
+                    }
+                });
+                
+                // Also prevent form submit on enter if we want pure SPA feel? 
+                // Requirement: "when the user presses enter it should submit to a /search page" -> So Default behavior is correct.
+            }
+        });
+      </script>
+   </body>
+</html>

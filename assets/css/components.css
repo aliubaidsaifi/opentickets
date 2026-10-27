@@ -1,0 +1,1474 @@
+/* ==========================================================================
+   components.css — reusable components (otr- prefix + BEM)
+   --------------------------------------------------------------------------
+   1. Buttons            .otr-btn
+   2. Navigation         .otr-nav, .otr-offcanvas, .otr-dropdown
+   3. Event card         .otr-card  (keeps .card .e-card .m-card-cover)
+   4. Date block         .otr-date
+   5. Footer             .otr-footer
+   6. Chat button        .otr-chat
+   7. Hero slider        .otr-hero
+   8. Featured strip     .otr-featured, .otr-card--compact
+   9. Event detail       .otr-event-head, .otr-panel, .otr-booking, .otr-buybar
+  10. Title CTA + modal  .otr-event-head__cta, .otr-modal, .otr-seatmap, .otr-section
+  11. Search page        .otr-pagehead, .otr-search--page, .otr-empty
+  12. FAQ                .otr-faq-*, .otr-accordion, .otr-help
+  13. Image fade-in
+  14. Card CTA, badge, pagination
+  15. Why strip + share  .otr-why, .otr-share
+   ISOTOPE RULE: nothing in this file puts gap / grid / flex / transform on
+   #events-grid or .grid-item. Gutters are column padding; hover effects
+   live on the inner .otr-card.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. BUTTONS
+   Bootstrap 5 .btn does the layout; we override its --bs-btn-* variables.
+   .btn-primary is mapped too so ported theme markup picks up the look.
+   ========================================================================== */
+.otr-btn,
+.btn-primary {
+  --bs-btn-font-family: var(--otr-font-body);
+  --bs-btn-font-size: var(--otr-fs-sm);
+  --bs-btn-font-weight: var(--otr-fw-semibold);
+  --bs-btn-padding-x: var(--otr-space-4);
+  --bs-btn-padding-y: 0.625rem;
+  --bs-btn-border-radius: var(--otr-radius-md);
+  --bs-btn-border-width: 1px;
+  letter-spacing: 0.01em;
+  transition: background-color var(--otr-dur) var(--otr-ease), border-color var(--otr-dur) var(--otr-ease),
+              color var(--otr-dur) var(--otr-ease), box-shadow var(--otr-dur) var(--otr-ease),
+              transform var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-btn:active { transform: translateY(1px); }
+
+/* Primary — GOLD call to action (Get Tickets / Buy Tickets / Book Now): navy text, 7.7:1.
+   A deep-gold hairline keeps the button edge visible on ivory. */
+.otr-btn--primary,
+.btn-primary {
+  --bs-btn-color: var(--otr-color-on-cta);
+  --bs-btn-bg: var(--otr-color-cta);
+  --bs-btn-border-color: var(--otr-color-cta-border);
+  --bs-btn-hover-color: var(--otr-color-on-cta);
+  --bs-btn-hover-bg: var(--otr-color-cta-hover);
+  --bs-btn-hover-border-color: var(--otr-color-cta-border);
+  --bs-btn-active-color: var(--otr-color-on-cta);
+  --bs-btn-active-bg: var(--otr-color-cta-hover);
+  --bs-btn-active-border-color: var(--otr-color-cta-border);
+  --bs-btn-disabled-color: var(--otr-color-on-cta);
+  --bs-btn-disabled-bg: var(--otr-color-cta);
+  --bs-btn-disabled-border-color: var(--otr-color-cta-border);
+  --bs-btn-focus-shadow-rgb: var(--otr-gold-deep-rgb);
+  box-shadow: 0 1px 2px rgba(var(--otr-gold-deep-rgb), 0.35), 0 6px 16px rgba(var(--otr-gold-rgb), 0.35);
+}
+.otr-btn--primary:hover,
+.btn-primary:hover { box-shadow: 0 2px 4px rgba(var(--otr-gold-deep-rgb), 0.4), 0 10px 24px rgba(var(--otr-gold-rgb), 0.45); }
+
+/* Crimson button — rarely needed (destructive / alternative emphasis) */
+.otr-btn--crimson {
+  --bs-btn-color: var(--otr-color-on-primary);
+  --bs-btn-bg: var(--otr-color-primary);
+  --bs-btn-border-color: var(--otr-color-primary);
+  --bs-btn-hover-color: var(--otr-color-on-primary);
+  --bs-btn-hover-bg: var(--otr-color-primary-hover);
+  --bs-btn-hover-border-color: var(--otr-color-primary-hover);
+}
+
+/* Secondary — navy outline, for light surfaces */
+.otr-btn--secondary {
+  --bs-btn-color: var(--otr-color-dark);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--otr-color-dark);
+  --bs-btn-hover-color: var(--otr-color-on-dark);
+  --bs-btn-hover-bg: var(--otr-color-dark);
+  --bs-btn-hover-border-color: var(--otr-color-dark);
+  --bs-btn-active-color: var(--otr-color-on-dark);
+  --bs-btn-active-bg: var(--otr-color-dark-hover);
+  --bs-btn-active-border-color: var(--otr-color-dark-hover);
+}
+
+/* Gold outline — for navy surfaces (nav, footer) */
+.otr-btn--gold {
+  --bs-btn-color: var(--otr-color-accent);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--otr-color-accent);
+  --bs-btn-hover-color: var(--otr-color-dark);
+  --bs-btn-hover-bg: var(--otr-color-accent);
+  --bs-btn-hover-border-color: var(--otr-color-accent);
+  --bs-btn-active-color: var(--otr-color-dark);
+  --bs-btn-active-bg: var(--otr-color-accent);
+  --bs-btn-active-border-color: var(--otr-color-accent);
+}
+
+/* Ghost — text button */
+.otr-btn--ghost {
+  --bs-btn-color: var(--otr-color-primary);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--otr-color-primary-hover);
+  --bs-btn-hover-bg: var(--otr-color-primary-tint);
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: var(--otr-color-primary-hover);
+  --bs-btn-active-bg: var(--otr-color-primary-tint);
+  --bs-btn-active-border-color: transparent;
+}
+
+.otr-btn--sm { --bs-btn-padding-x: var(--otr-space-3); --bs-btn-padding-y: 0.4rem; --bs-btn-font-size: var(--otr-fs-xs); }
+.otr-btn--lg { --bs-btn-padding-x: var(--otr-space-5); --bs-btn-padding-y: 0.875rem; --bs-btn-font-size: var(--otr-fs-md); }
+
+/* Keyboard focus: Bootstrap's .btn removes the outline and relies on a box-shadow that our
+   variable overrides leave empty, so every button gets an explicit gold ring here
+   (deep gold on light surfaces, bright gold on navy). */
+.btn:focus-visible {
+  outline: 2px solid var(--otr-color-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+.otr-nav .btn:focus-visible,
+.otr-footer .btn:focus-visible,
+.otr-offcanvas .btn:focus-visible,
+.otr-help .btn:focus-visible,
+.otr-buybar .btn:focus-visible,
+.otr-modal .modal-header .btn-close:focus-visible { outline-color: var(--otr-color-focus-on-dark); }
+
+/* Focus rings: gold on navy, deep gold on light */
+.otr-btn--gold:focus-visible,
+.otr-nav :focus-visible,
+.otr-footer :focus-visible,
+.otr-offcanvas :focus-visible { outline-color: var(--otr-color-focus-on-dark); }
+
+
+/* ==========================================================================
+   2. NAVIGATION
+   One fixed top bar. .otr-nav--shrunk is toggled by OT.nav (assets/js/main.js)
+   once the page scrolls past a small threshold.
+   Desktop (lg+): logo | search | links | language | My Account
+   Mobile:        logo | search toggle | hamburger → offcanvas
+   ========================================================================== */
+.otr-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--otr-z-nav);
+  height: var(--otr-nav-h);
+  background: rgba(var(--otr-navy-rgb), 0.94);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  backdrop-filter: saturate(140%) blur(12px);
+  color: var(--otr-color-on-dark);
+  transition: height var(--otr-dur) var(--otr-ease), background-color var(--otr-dur) var(--otr-ease),
+              box-shadow var(--otr-dur) var(--otr-ease);
+}
+.otr-nav--shrunk {
+  height: var(--otr-nav-h-shrunk);
+  background: rgba(var(--otr-navy-rgb), 0.9);
+  box-shadow: var(--otr-shadow-nav);
+}
+
+.otr-nav__inner {
+  height: 100%;
+  max-width: var(--otr-container-max);
+  display: flex;
+  align-items: center;
+  gap: var(--otr-space-3);
+}
+
+/* Brand */
+.otr-nav__brand { flex: 0 0 auto; display: inline-flex; align-items: center; }
+.otr-nav__logo {
+  height: var(--otr-logo-h);
+  width: auto;
+  transition: height var(--otr-dur) var(--otr-ease);
+}
+.otr-nav--shrunk .otr-nav__logo { height: var(--otr-logo-h-shrunk); }
+
+/* Search — the live Isotope filter input (#nav-search-input) lives here */
+.otr-nav__search {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 520px;
+  margin: 0 auto 0 var(--otr-space-2);
+}
+.otr-search {
+  display: flex;
+  align-items: center;
+  background: var(--otr-color-input-bg);
+  border-radius: var(--otr-radius-pill);
+  padding: 4px 4px 4px var(--otr-space-3);
+  box-shadow: inset 0 0 0 1px rgba(var(--otr-gold-rgb), 0);
+  transition: box-shadow var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-search:focus-within { box-shadow: 0 0 0 2px var(--otr-color-accent); }
+.otr-search__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--otr-color-input-text);
+  font-size: var(--otr-fs-sm);
+  padding: 0.4rem 0;
+}
+.otr-search__input:focus { outline: 0; }          /* the pill shows the focus ring */
+.otr-search__input::placeholder { color: var(--otr-color-muted); opacity: 1; }
+.otr-search__btn {
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--otr-color-cta);
+  color: var(--otr-color-on-cta);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-search__btn:hover { background: var(--otr-color-cta-hover); }
+
+/* Primary links */
+.otr-nav__links { display: none; align-items: center; gap: var(--otr-space-1); margin: 0; padding: 0; list-style: none; }
+.otr-nav__link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--otr-color-on-dark-muted);
+  font-size: var(--otr-fs-sm);
+  font-weight: var(--otr-fw-medium);
+  text-decoration: none;
+  transition: color var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-nav__link::after {                      /* gold underline grows on hover / current */
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  background: var(--otr-color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--otr-dur) var(--otr-ease);
+}
+.otr-nav__link:hover,
+.otr-nav__link[aria-current="page"] { color: var(--otr-color-on-dark); }
+.otr-nav__link:hover::after,
+.otr-nav__link[aria-current="page"]::after { transform: scaleX(1); }
+
+/* Language + account (desktop) */
+.otr-nav__lang, .otr-nav__account { display: none; }
+.otr-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--otr-space-2);
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--otr-color-on-dark-muted);
+  font-size: var(--otr-fs-sm);
+  font-weight: var(--otr-fw-medium);
+  border-radius: var(--otr-radius-sm);
+  transition: color var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-lang-btn:hover,
+.otr-lang-btn[aria-expanded="true"] { color: var(--otr-color-on-dark); }
+.otr-lang-btn::after { margin-left: 0; }
+
+/* Mobile controls */
+.otr-nav__actions { margin-left: auto; display: flex; align-items: center; gap: var(--otr-space-1); }
+.otr-nav__icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--otr-color-on-dark);
+  font-size: var(--otr-fs-lg);
+  transition: background-color var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-nav__icon-btn:hover { background: rgba(var(--otr-white-rgb), 0.1); }
+
+/* Below lg: search collapses into a drawer under the bar, opened by the toggle */
+@media (max-width: 991.98px) {
+  .otr-nav__search {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    max-width: none;
+    margin: 0;
+    padding: var(--otr-space-2) var(--otr-space-3) var(--otr-space-3);
+    background: rgba(var(--otr-navy-rgb), 0.97);
+    box-shadow: var(--otr-shadow-nav);
+    display: none;
+  }
+  .otr-nav__search.is-open { display: block; }
+}
+
+@media (min-width: 992px) {
+  .otr-nav__links { display: flex; }
+  .otr-nav__lang, .otr-nav__account { display: block; }
+  .otr-nav__actions { display: none; }
+  .otr-nav__inner { gap: var(--otr-space-2); }
+}
+@media (min-width: 1200px) {
+  .otr-nav__inner { gap: var(--otr-space-3); }
+}
+
+/* --- Dropdown menu (language) — shared by nav and footer ---------------- */
+.otr-dropdown .dropdown-menu {
+  --bs-dropdown-bg: var(--otr-color-surface);
+  --bs-dropdown-border-color: var(--otr-color-border);
+  --bs-dropdown-border-radius: var(--otr-radius-md);
+  --bs-dropdown-link-color: var(--otr-color-text);
+  --bs-dropdown-link-hover-color: var(--otr-color-text);
+  --bs-dropdown-link-hover-bg: var(--otr-color-surface-alt);
+  --bs-dropdown-link-active-color: var(--otr-color-primary);
+  --bs-dropdown-link-active-bg: var(--otr-color-primary-tint);
+  --bs-dropdown-padding-y: var(--otr-space-2);
+  --bs-dropdown-font-size: var(--otr-fs-sm);
+  box-shadow: var(--otr-shadow-lg);
+  min-width: 12rem;
+}
+.otr-dropdown .dropdown-item { padding: 0.5rem var(--otr-space-3); }
+.otr-dropdown .dropdown-item:focus-visible { outline-offset: -2px; }
+
+/* --- Offcanvas (mobile menu) -------------------------------------------- */
+.otr-offcanvas {
+  --bs-offcanvas-bg: var(--otr-color-dark);
+  --bs-offcanvas-color: var(--otr-color-on-dark);
+  --bs-offcanvas-width: min(22rem, 86vw);
+  --bs-offcanvas-padding-x: var(--otr-space-4);
+  --bs-offcanvas-padding-y: var(--otr-space-3);
+  border-left: 1px solid rgba(var(--otr-white-rgb), 0.08);
+}
+.otr-offcanvas__list { list-style: none; margin: 0; padding: 0; }
+.otr-offcanvas__link {
+  display: block;
+  padding: var(--otr-space-3) 0;
+  border-bottom: 1px solid rgba(var(--otr-white-rgb), 0.1);
+  font-family: var(--otr-font-display);
+  font-size: var(--otr-fs-xl);
+  font-weight: var(--otr-fw-semibold);
+  color: var(--otr-color-on-dark);
+  text-decoration: none;
+}
+.otr-offcanvas__link:hover,
+.otr-offcanvas__link[aria-current="page"] { color: var(--otr-color-accent); }
+.otr-offcanvas__label {
+  margin: var(--otr-space-4) 0 var(--otr-space-2);
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--otr-color-on-dark-muted);
+}
+.otr-offcanvas__langs { display: flex; flex-wrap: wrap; gap: var(--otr-space-2); list-style: none; margin: 0; padding: 0; }
+.otr-offcanvas__langs a {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(var(--otr-white-rgb), 0.2);
+  border-radius: var(--otr-radius-pill);
+  color: var(--otr-color-on-dark-muted);
+  font-size: var(--otr-fs-sm);
+  text-decoration: none;
+}
+.otr-offcanvas__langs a:hover,
+.otr-offcanvas__langs a[aria-current="true"] { color: var(--otr-color-dark); background: var(--otr-color-accent); border-color: var(--otr-color-accent); }
+
+
+/* ==========================================================================
+   3. EVENT CARD
+   Markup:  .col… .grid-item > .card.e-card.otr-card > a
+              > .m-card-cover.otr-card__cover (blurred fill img + contain img)
+              + .otr-card__body (.otr-date + .otr-card__info)
+   Fixed poster ratio and fixed body height keep every Isotope fitRows row
+   level. Titles clamp to 2 lines, venue to 1, so long Afrikaans names can
+   never change a card's height. Posters are NEVER cropped (object-fit: contain).
+   ========================================================================== */
+.otr-card {
+  --otr-card-edge: var(--otr-color-border);   /* shared by the border and the ticket notches */
+  position: relative;
+  overflow: hidden;
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-card-edge);
+  border-radius: var(--otr-radius-md);
+  box-shadow: var(--otr-shadow-sm);
+  transition: transform var(--otr-dur) var(--otr-ease), box-shadow var(--otr-dur) var(--otr-ease),
+              border-color var(--otr-dur) var(--otr-ease);
+}
+.otr-card:hover,
+.otr-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--otr-shadow-lg);
+  --otr-card-edge: var(--otr-color-border-strong);
+}
+.otr-card__link { display: block; color: inherit; text-decoration: none; }
+.otr-card__link:hover { color: inherit; }
+.otr-card__link:focus-visible { outline-offset: -3px; }
+
+/* Poster frame: fixed ratio; same image blurred + darkened behind as the fill */
+.otr-card__cover {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--otr-poster-ratio);
+  height: auto !important;               /* beats the legacy inline height:135px if markup is ported unchanged */
+  background: var(--otr-color-poster-bg);
+}
+.otr-card__fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);                 /* hides the blur's soft edge */
+  filter: blur(18px) brightness(0.55) saturate(1.15);
+}
+.otr-card__img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                   /* never crop a poster */
+  transition: transform var(--otr-dur-slow) var(--otr-ease);
+}
+.otr-card:hover .otr-card__img { transform: scale(1.04); }
+
+.otr-card__body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--otr-space-3);
+  height: var(--otr-card-body-h);
+  padding: var(--otr-space-3) var(--otr-space-3) var(--otr-space-3) var(--otr-space-3);
+}
+.otr-card__info { flex: 1 1 auto; min-width: 0; }   /* min-width:0 lets ellipsis work in flex */
+.otr-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  height: calc(var(--otr-lh-card-title) * 2em);      /* always two lines tall */
+  margin: 0 0 var(--otr-space-2);
+  font-family: var(--otr-font-display);
+  font-size: var(--otr-fs-lg);
+  font-weight: var(--otr-fw-semibold);
+  line-height: var(--otr-lh-card-title);
+  color: var(--otr-color-text);
+  letter-spacing: -0.005em;
+}
+.otr-card__meta {
+  display: block;
+  margin: 0;
+  font-size: var(--otr-fs-sm);
+  line-height: 1.5;
+  color: var(--otr-color-muted);
+}
+.otr-card__venue {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.otr-card__venue i { margin-right: 0.35em; color: var(--otr-color-primary); }
+.otr-card__time {
+  letter-spacing: normal;
+  font-variant-numeric: proportional-nums;   /* tight string; digit alignment across cards does not matter */
+}
+
+/* Ticket-stub perforation between poster and body.
+   A zero-height inner element (aria-hidden): it adds no height and sits on
+   the card, never on .grid-item, so Isotope and the hover lift are unaffected.
+   ::before = dashed tear line, ::after = a half-circle notch cut into each side edge
+   (fill = page background token, ring = the card edge colour). */
+.otr-card__perf {
+  position: relative;
+  z-index: 2;
+  height: 0;
+  pointer-events: none;
+}
+.otr-card__perf::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--otr-space-4);
+  right: var(--otr-space-4);
+  border-top: 2px dashed var(--otr-color-border-strong);
+}
+.otr-card__perf::after {
+  content: "";
+  position: absolute;
+  left: -1px;                              /* cover the card border */
+  right: -1px;
+  top: -10px;
+  height: 20px;
+  background:
+    radial-gradient(circle at 0 50%, var(--otr-color-bg) 0 9px, var(--otr-card-edge) 9px 10px, transparent 10px) no-repeat,
+    radial-gradient(circle at 100% 50%, var(--otr-color-bg) 0 9px, var(--otr-card-edge) 9px 10px, transparent 10px) no-repeat;
+}
+
+
+/* ==========================================================================
+   4. DATE BLOCK
+   Stacked: large serif day in crimson, thin divider, small-caps month.
+   ========================================================================== */
+.otr-date {
+  flex: 0 0 3.25rem;
+  text-align: center;
+  line-height: 1;
+}
+.otr-date__day {
+  display: block;
+  font-family: var(--otr-font-display);
+  font-size: var(--otr-fs-3xl);
+  font-weight: var(--otr-fw-bold);
+  line-height: 1;
+  color: var(--otr-color-primary);
+  font-variant-numeric: lining-nums;
+}
+.otr-date__rule {
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  margin: var(--otr-space-2) auto;
+  background: var(--otr-color-border-strong);
+}
+.otr-date__month {
+  display: block;
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--otr-color-muted);
+}
+
+
+/* ==========================================================================
+   5. FOOTER
+   Navy, four columns: Get In Touch | Support | Legal | Language.
+   ========================================================================== */
+.otr-footer {
+  margin-top: var(--otr-space-8);
+  padding: var(--otr-space-7) 0 var(--otr-space-4);
+  background: var(--otr-color-dark);
+  color: var(--otr-color-on-dark-muted);
+  font-size: var(--otr-fs-sm);
+}
+.otr-footer { position: relative; overflow: hidden; }
+.otr-footer__inner { position: relative; z-index: 1; max-width: var(--otr-container-max); }
+
+/* Decorative background wordmark: huge, very low contrast (white at 4%), never read or clicked */
+.otr-footer__wordmark {
+  position: absolute;
+  left: 50%;
+  bottom: -0.22em;
+  z-index: 0;
+  transform: translateX(-50%);
+  font-family: var(--otr-font-display);
+  font-size: clamp(4.5rem, 15vw, 14rem);
+  font-weight: var(--otr-fw-bold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: rgba(var(--otr-white-rgb), 0.04);
+  pointer-events: none;
+  user-select: none;
+}
+.otr-footer__brand { display: inline-block; margin-bottom: var(--otr-space-6); }
+.otr-footer__logo { display: block; height: 3rem; width: auto; }
+.otr-footer__title {
+  position: relative;
+  margin: 0 0 var(--otr-space-4);
+  padding-bottom: var(--otr-space-2);
+  font-family: var(--otr-font-display);
+  font-size: var(--otr-fs-lg);
+  color: var(--otr-color-on-dark);
+}
+.otr-footer__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2rem;
+  height: 2px;
+  background: var(--otr-color-accent);
+}
+.otr-footer__list { list-style: none; margin: 0; padding: 0; }
+.otr-footer__list li + li { margin-top: var(--otr-space-2); }
+.otr-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--otr-space-2);
+  color: var(--otr-color-on-dark-muted);
+  text-decoration: none;
+  transition: color var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-footer__link i { width: 1.25rem; text-align: center; }
+.otr-footer__link:hover { color: var(--otr-color-on-dark); }
+
+.otr-footer__social { display: flex; flex-wrap: wrap; gap: var(--otr-space-2); list-style: none; margin: 0; padding: 0; }
+.otr-footer__social a {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(var(--otr-white-rgb), 0.2);
+  border-radius: 50%;
+  color: var(--otr-color-on-dark);
+  text-decoration: none;
+  transition: background-color var(--otr-dur) var(--otr-ease), color var(--otr-dur) var(--otr-ease),
+              border-color var(--otr-dur) var(--otr-ease), transform var(--otr-dur) var(--otr-ease);
+}
+.otr-footer__social a:hover {
+  background: var(--otr-color-accent);
+  border-color: var(--otr-color-accent);
+  color: var(--otr-color-dark);
+  transform: translateY(-2px);
+}
+
+.otr-footer .otr-lang-btn { padding-left: 0; }
+
+.otr-footer__bottom {
+  margin-top: var(--otr-space-6);
+  padding-top: var(--otr-space-4);
+  border-top: 1px solid rgba(var(--otr-white-rgb), 0.12);
+  text-align: center;
+  font-size: var(--otr-fs-xs);
+}
+.otr-footer__bottom a { color: var(--otr-color-on-dark); }
+
+
+/* ==========================================================================
+   6. CHAT BUTTON
+   Floating bottom-right. Markup keeps the live site's classes
+   (ot-chatbot ot-chatbot--floating / ot-chatbot__launcher) next to ours so it
+   works with or without the live theme's inline <style>.
+   ========================================================================== */
+.otr-chat {
+  position: fixed;
+  right: var(--otr-space-3);
+  bottom: var(--otr-space-3);
+  z-index: var(--otr-z-chat);
+}
+.otr-chat__launcher {
+  --bs-box-shadow: var(--otr-shadow-lg);   /* Bootstrap .shadow uses this variable (!important) */
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: var(--otr-fs-xl);
+  box-shadow: var(--otr-shadow-lg);
+  transition: transform var(--otr-dur) var(--otr-ease), box-shadow var(--otr-dur) var(--otr-ease),
+              background-color var(--otr-dur) var(--otr-ease);
+}
+.otr-chat__launcher:hover { transform: translateY(-2px) scale(1.04); }
+@media (max-width: 767.98px) {
+  .otr-chat { right: 1.25rem; bottom: 1.25rem; }          /* a little further in from the edges */
+  .otr-chat__launcher { width: 3rem; height: 3rem; font-size: var(--otr-fs-lg); }
+  .otr-footer { padding-bottom: calc(var(--otr-space-4) + 4.5rem); }   /* chat button never covers footer links */
+}
+@media (min-width: 768px) {
+  .otr-chat { right: var(--otr-space-4); bottom: var(--otr-space-4); }
+}
+
+
+/* ==========================================================================
+   7. HERO SLIDER
+   Slick (centre mode) on the original .osahan-slider markup. The next and
+   previous slides peek in from either side. --otr-hero-pad MUST match the
+   centerPadding values in the Slick options (see README, "Slick options"):
+   120px >=1200 | 80px 768-1199 | 0px <768 (phones show the
+   full-width slide, no peek). The 1210x450 ratio is never
+   cropped, so the hero height is capped by the container width itself.
+   ========================================================================== */
+.otr-hero {
+  --otr-hero-pad: 0px;
+  position: relative;
+  margin: var(--otr-space-4) 0 var(--otr-space-3);
+}
+@media (min-width: 768px)  { .otr-hero { --otr-hero-pad: 80px; } }
+@media (min-width: 1200px) { .otr-hero { --otr-hero-pad: 120px; } }
+
+/* Before Slick initialises show only the first slide so nothing jumps */
+.otr-hero:not(.slick-initialized) > .osahan-slider-item:not(:first-child) { display: none; }
+.otr-hero:not(.slick-initialized) { padding: 0 var(--otr-hero-pad); }
+
+.otr-hero .osahan-slider-item { padding: 0 0 var(--otr-space-4); }   /* room for the shadow inside the slick list */
+@media (min-width: 768px) { .otr-hero .osahan-slider-item { padding-inline: var(--otr-space-2); } }
+/* Frame = the anchor: exactly 1210:450. A standard banner fills it completely. A non-standard one
+   (e.g. 1210x482) is shown whole (contain) over a blurred, darkened copy of itself, set per slide
+   by a second, decorative <img class="otr-hero__fill"> inside the anchor. Never cropped. */
+.otr-hero .osahan-slider-item a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--otr-radius-lg);
+  aspect-ratio: var(--otr-poster-ratio);
+  background: var(--otr-color-poster-bg);
+  box-shadow: 0 10px 16px -8px rgba(var(--otr-navy-rgb), 0.3);   /* negative spread: no sideways leak where slick clips */
+}
+.otr-hero .osahan-slider-item img.otr-hero__fill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  filter: blur(18px) brightness(0.55) saturate(1.15);
+}
+.otr-hero .osahan-slider-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--otr-radius-lg);
+  /* every slide gets the same 1210:450 frame, so a banner with a different ratio is letterboxed, never cropped */
+  position: relative;
+  z-index: 1;
+  aspect-ratio: var(--otr-poster-ratio);
+  object-fit: contain;
+}
+.otr-hero .slick-slide:focus { outline: 0; }
+.otr-hero .slick-slide:focus-visible { outline: 3px solid var(--otr-color-focus-on-dark); outline-offset: -6px; border-radius: var(--otr-radius-lg); }
+/* Side peeks: one identical navy overlay on BOTH sides (no opacity, so banners that carry
+   their own white margins dim the same as dark ones) */
+.otr-hero .osahan-slider-item a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: var(--otr-radius-lg);
+  background: rgba(var(--otr-navy-rgb), 0.62);
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity var(--otr-dur-slow) var(--otr-ease);
+}
+.otr-hero .slick-center a::after { opacity: 0; }
+.otr-hero:not(.slick-initialized) .osahan-slider-item a::after { opacity: 0; }
+.otr-hero .slick-slide a:focus-visible { outline-offset: -3px; }
+
+/* Arrows sit on the edges of the centre slide */
+.otr-hero__arrow {
+  position: absolute;
+  top: calc(50% - var(--otr-space-3));
+  z-index: 3;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--otr-color-border);
+  border-radius: 50%;
+  background: rgba(var(--otr-white-rgb), 0.92);
+  color: var(--otr-color-text);
+  box-shadow: var(--otr-shadow-md);
+  transform: translateY(-50%);
+  transition: background-color var(--otr-dur) var(--otr-ease), color var(--otr-dur) var(--otr-ease);
+}
+.otr-hero__arrow:hover { background: var(--otr-color-cta); color: var(--otr-color-on-cta); border-color: var(--otr-color-cta-border); }
+.otr-hero__arrow--prev { left: calc(var(--otr-hero-pad) + var(--otr-space-3)); }
+.otr-hero__arrow--next { right: calc(var(--otr-hero-pad) + var(--otr-space-3)); }
+@media (min-width: 768px) { .otr-hero__arrow { display: inline-flex; } }
+
+/* Dots */
+.otr-hero__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--otr-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.otr-hero__dots li { line-height: 0; }
+.otr-hero__dots button {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--otr-radius-pill);
+  background: var(--otr-color-border-strong);
+  font-size: 0;
+  transition: width var(--otr-dur) var(--otr-ease), background-color var(--otr-dur) var(--otr-ease);
+}
+.otr-hero__dots button:hover { background: var(--otr-color-muted); }
+.otr-hero__dots .slick-active button {
+  width: 1.5rem;
+  background: var(--otr-color-accent);
+  box-shadow: inset 0 0 0 1px var(--otr-color-accent-deep);   /* edge stays visible on ivory */
+}
+
+
+/* ==========================================================================
+   8. FEATURED STRIP + COMPACT CARD
+   Lives INSIDE the hero's Alpine collapse wrapper (as a new child), so it
+   collapses while the user filters. It is NOT inside #events-grid.
+   Mobile: horizontal snap strip inside its own box. >=576: 2 columns. >=992: 4.
+   ========================================================================== */
+.otr-featured { margin: 0 0 var(--otr-space-4); }
+.otr-featured__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--otr-space-3);
+  margin-bottom: var(--otr-space-3);
+}
+.otr-featured__title { margin: 0; font-size: var(--otr-fs-xl); }
+
+/* Gold label pill (navy text on gold) — "Featured" and similar section labels */
+.otr-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--otr-space-2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--otr-radius-pill);
+  background: var(--otr-color-accent);
+  color: var(--otr-color-on-cta);
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.otr-featured__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 82%;                  /* ~15% of the next card peeks in as a hint */
+  gap: var(--otr-space-3);
+  margin: 0 calc(var(--bs-gutter-x, 1.5rem) * -0.5);       /* bleed to the container edge, no further */
+  padding: var(--otr-space-2) calc(var(--bs-gutter-x, 1.5rem) * 0.5) var(--otr-space-4);   /* room for lift + shadow */
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+  scrollbar-width: none;
+}
+.otr-featured__list::-webkit-scrollbar { display: none; }
+.otr-featured__list > li { scroll-snap-align: start; }
+@media (min-width: 576px) {
+  .otr-featured__list {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+    padding: 0 0 var(--otr-space-2);
+    overflow: visible;
+  }
+}
+@media (min-width: 992px) { .otr-featured__list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* Compact variant: shorter body, no datetime line */
+.otr-card--compact { --otr-card-body-h: 108px; }
+.otr-card--compact .otr-card__body { gap: var(--otr-space-2); padding: var(--otr-space-3) var(--otr-space-3) var(--otr-space-2); }
+.otr-card--compact .otr-date { flex-basis: 2.75rem; }
+.otr-card--compact .otr-date__day { font-size: var(--otr-fs-2xl); }
+.otr-card--compact .otr-card__title { font-size: var(--otr-fs-md); }
+
+
+/* ==========================================================================
+   9. EVENT DETAIL (event.html)
+   Order exactly as the live page: poster + title + venue + date, About,
+   Location, then (right column) notice, Book Now, price table, button.
+   Poster frame is the same 1210:450 .otr-card__cover as every other event image.
+   ========================================================================== */
+.otr-event-head {
+  overflow: hidden;
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-md);
+}
+.otr-event-head__body {
+  display: flex;
+  align-items: center;
+  gap: var(--otr-space-4);
+  padding: var(--otr-space-4);
+}
+.otr-event-head__body .otr-date { flex-basis: 4rem; }
+.otr-event-head__body .otr-date__day { font-size: var(--otr-fs-4xl); }
+.otr-event-head__title { margin: 0 0 var(--otr-space-2); font-size: var(--otr-fs-h2); }
+.otr-event-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--otr-space-1) var(--otr-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--otr-color-muted);
+}
+.otr-event-head__meta i { margin-right: 0.4em; color: var(--otr-color-primary); }
+.otr-event-head__when { color: var(--otr-color-primary); font-weight: var(--otr-fw-medium); }
+
+/* Content panels (About, Location) */
+.otr-panel {
+  margin-bottom: var(--otr-space-4);
+  padding: var(--otr-space-5);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-sm);
+}
+.otr-panel__title {
+  position: relative;
+  margin: 0 0 var(--otr-space-4);
+  padding-bottom: var(--otr-space-2);
+  font-size: var(--otr-fs-xl);
+}
+.otr-panel__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2rem;
+  height: 2px;
+  background: var(--otr-color-accent);
+}
+.otr-panel__text { margin: 0; line-height: 1.75; overflow-wrap: anywhere; }
+.otr-map {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--otr-radius-md);
+  background: var(--otr-color-surface-alt);
+}
+@media (min-width: 768px) { .otr-map { aspect-ratio: 21 / 9; } }
+.otr-map iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* Notice (the "have your payment method ready" message) */
+.otr-notice {
+  display: flex;
+  gap: var(--otr-space-3);
+  margin-bottom: var(--otr-space-4);
+  padding: var(--otr-space-3);
+  background: var(--otr-color-surface-alt);
+  border-left: 3px solid var(--otr-color-accent);
+  border-radius: var(--otr-radius-sm);
+  font-size: var(--otr-fs-sm);
+  line-height: 1.55;
+}
+.otr-notice i { margin-top: 0.2em; color: var(--otr-color-accent-deep); }
+
+/* Booking panel — sticky on desktop */
+.otr-booking {
+  padding: var(--otr-space-4);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-md);
+}
+@media (min-width: 992px) {
+  .otr-booking { position: sticky; top: calc(var(--otr-nav-h-shrunk) + var(--otr-space-3)); }
+}
+.otr-booking__title { margin: 0 0 var(--otr-space-3); font-size: var(--otr-fs-xl); }
+.otr-booking__label { margin: 0 0 var(--otr-space-2); font-size: var(--otr-fs-sm); color: var(--otr-color-muted); }
+.otr-price-table { width: 100%; margin-bottom: var(--otr-space-4); border-collapse: collapse; }
+.otr-price-table th {
+  padding: 0 0 var(--otr-space-2);
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--otr-color-muted);
+}
+.otr-price-table td { padding: var(--otr-space-2) 0; border-top: 1px solid var(--otr-color-border); font-weight: var(--otr-fw-semibold); }
+.otr-price-table th:not(:first-child),
+.otr-price-table td:not(:first-child) { text-align: right; padding-left: var(--otr-space-3); white-space: nowrap; }
+
+/* Mobile buy bar — only below lg; the desktop panel is sticky instead */
+.otr-buybar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: calc(var(--otr-z-chat) - 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--otr-space-3);
+  padding: var(--otr-space-2) var(--otr-space-3);
+  background: rgba(var(--otr-navy-rgb), 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -8px 24px rgba(var(--otr-navy-rgb), 0.25);
+  color: var(--otr-color-on-dark);
+}
+.otr-buybar__price { display: flex; flex-direction: column; line-height: 1.2; }
+.otr-buybar__label { font-size: var(--otr-fs-xs); color: var(--otr-color-on-dark-muted); }
+.otr-buybar__amount { font-family: var(--otr-font-display); font-size: var(--otr-fs-xl); font-weight: var(--otr-fw-semibold); color: var(--otr-color-accent); }
+@media (min-width: 992px) { .otr-buybar { display: none; } }
+@media (max-width: 991.98px) {
+  .otr-has-buybar .otr-chat { bottom: 5rem; }
+  .otr-has-buybar .otr-footer { padding-bottom: calc(var(--otr-space-4) + 5rem); }
+}
+
+/* Plain card list (More events): same .otr-card, no Isotope */
+.otr-card-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--otr-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 576px) { .otr-card-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 992px) { .otr-card-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+
+/* ==========================================================================
+   10. TITLE-ROW CTA + SEAT MODAL (event.html)
+   Compact "From R 250.00 + Book Now" on the right of the event title row
+   (md and up; below md the sticky bottom bar is used instead).
+   The modal is the live "Select a Section" dialog as a Bootstrap 5 modal:
+   navy header, section list, Cancel. The map itself is the follow-up project:
+   it mounts into #otr-seating-map (the SEATING MAP SLOT).
+   ========================================================================== */
+.otr-event-head__body { flex-wrap: wrap; }
+.otr-event-head__text { flex: 1 1 10rem; min-width: 0; }   /* small basis: date block stays beside the title on phones */
+@media (max-width: 575.98px) { .otr-event-head__body { gap: var(--otr-space-3); padding: var(--otr-space-3); } .otr-event-head__body .otr-date { flex-basis: 3.5rem; } .otr-event-head__body .otr-date__day { font-size: var(--otr-fs-3xl); } }
+.otr-event-head__cta {
+  display: none;
+  align-items: center;
+  gap: var(--otr-space-3);
+  margin-left: auto;
+}
+@media (min-width: 768px) { .otr-event-head__cta { display: flex; } }
+.otr-event-head__from { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; }
+.otr-event-head__from-label { font-size: var(--otr-fs-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--otr-color-muted); }
+.otr-event-head__from-amount {
+  font-family: var(--otr-font-display);
+  font-size: var(--otr-fs-2xl);
+  font-weight: var(--otr-fw-semibold);
+  font-variant-numeric: lining-nums;
+  color: var(--otr-color-text);
+  white-space: nowrap;
+}
+/* the sticky bottom bar is for phones only (below md) */
+@media (min-width: 768px) {
+  .otr-buybar { display: none; }
+  .otr-has-buybar .otr-chat { bottom: var(--otr-space-4); }
+  .otr-has-buybar .otr-footer { padding-bottom: var(--otr-space-4); }
+}
+@media (max-width: 767.98px) {
+  .otr-has-buybar .otr-chat { bottom: 5rem; }
+  .otr-has-buybar .otr-footer { padding-bottom: calc(var(--otr-space-4) + 5rem); }
+}
+
+.otr-modal .modal-content {
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-lg);
+}
+.otr-modal .modal-header {
+  padding: var(--otr-space-3) var(--otr-space-4);
+  background: var(--otr-color-dark);
+  border-bottom: 2px solid var(--otr-color-accent);
+  color: var(--otr-color-on-dark);
+}
+.otr-modal .modal-title { margin: 0; font-size: var(--otr-fs-xl); color: var(--otr-color-on-dark); }
+.otr-modal .modal-body { padding: var(--otr-space-4); background: var(--otr-color-bg); }
+.otr-modal .modal-footer { background: var(--otr-color-surface); border-top: 1px solid var(--otr-color-border); }
+.otr-modal .modal-header :focus-visible { outline-color: var(--otr-color-focus-on-dark); }
+
+/* SEATING MAP SLOT: while empty it shows a quiet 4:3 placeholder (same ratio as the live map) */
+.otr-seatmap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--otr-color-surface);
+  border: 1px dashed var(--otr-color-border-strong);
+  border-radius: var(--otr-radius-md);
+}
+.otr-seatmap:empty::before {
+  content: "\f279";                       /* Font Awesome "map" */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--otr-color-border-strong);
+}
+
+/* Section list (the live map's sections, as accessible buttons) */
+.otr-sections { display: grid; gap: var(--otr-space-2); margin: 0; padding: 0; list-style: none; }
+.otr-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--otr-space-3);
+  width: 100%;
+  padding: var(--otr-space-3);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-md);
+  color: var(--otr-color-text);
+  font-weight: var(--otr-fw-semibold);
+  text-align: left;
+  transition: border-color var(--otr-dur-fast) var(--otr-ease), box-shadow var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-section i { color: var(--otr-color-accent-deep); }
+.otr-section:hover:not(:disabled) { border-color: var(--otr-color-accent-deep); box-shadow: var(--otr-shadow-sm); }
+.otr-section:disabled { background: var(--otr-color-surface-alt); color: var(--otr-color-muted); cursor: not-allowed; }
+.otr-section__status { display: block; font-size: var(--otr-fs-xs); font-weight: var(--otr-fw-regular); line-height: 1.4; }
+
+
+/* ==========================================================================
+   11. PAGE HEAD, PAGE SEARCH, EMPTY STATE (search.html)
+   ========================================================================== */
+.otr-pagehead {
+  margin: var(--otr-space-4) 0;
+  padding: var(--otr-space-5);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-md);
+}
+.otr-pagehead__title { margin: 0 0 var(--otr-space-4); font-size: var(--otr-fs-h2); overflow-wrap: anywhere; }
+.otr-search--page { border: 1px solid var(--otr-color-border-strong); padding-left: var(--otr-space-4); max-width: 40rem; }
+.otr-search--page .otr-search__input { font-size: var(--otr-fs-md); }
+.otr-search__clear {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--otr-color-muted);
+}
+.otr-search__clear:hover { color: var(--otr-color-text); }
+.otr-search__clear[hidden] { display: none; }
+.otr-results__label { margin: 0 0 var(--otr-space-3); font-size: var(--otr-fs-xl); }
+
+.otr-empty {
+  margin: var(--otr-space-5) 0;
+  padding: var(--otr-space-6) var(--otr-space-4);
+  text-align: center;
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-sm);
+}
+.otr-empty[hidden] { display: none; }
+.otr-empty__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: var(--otr-space-3);
+  border-radius: 50%;
+  background: var(--otr-color-dark);
+  color: var(--otr-color-accent);
+  font-size: var(--otr-fs-2xl);
+}
+.otr-empty__title { margin: 0 0 var(--otr-space-2); font-size: var(--otr-fs-h3); }
+.otr-empty__text { max-width: 32rem; margin: 0 auto var(--otr-space-4); color: var(--otr-color-muted); overflow-wrap: anywhere; }
+.otr-suggest { margin-top: var(--otr-space-6); text-align: left; }
+.otr-suggest__title { margin: 0 0 var(--otr-space-3); font-size: var(--otr-fs-xl); text-align: center; }
+
+
+/* ==========================================================================
+   12. FAQ (faqs.html)
+   Hero, five category cards, live search, grouped Bootstrap 5 accordions,
+   "Still need help?" block.
+   ========================================================================== */
+.otr-faq-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(11rem, 8rem + 12vw, 17rem);
+  margin: var(--otr-space-4) 0;
+  overflow: hidden;
+  border-radius: var(--otr-radius-lg);
+  background: var(--otr-color-poster-bg);
+  box-shadow: var(--otr-shadow-md);
+  text-align: center;
+}
+.otr-faq-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.otr-faq-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(var(--otr-navy-rgb), 0.55), rgba(var(--otr-navy-rgb), 0.82));
+}
+.otr-faq-hero__inner { position: relative; z-index: 1; padding: 0 var(--otr-space-3); }
+.otr-faq-hero__title { margin: 0; color: var(--otr-color-on-dark); font-size: var(--otr-fs-h1); }
+.otr-faq-hero__title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin: var(--otr-space-3) auto 0;
+  background: var(--otr-color-accent);
+}
+
+.otr-faq-cats {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--otr-space-3);
+  margin: 0 0 var(--otr-space-6);
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 576px) { .otr-faq-cats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 992px) { .otr-faq-cats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.otr-faq-cat {
+  display: flex;
+  align-items: center;
+  gap: var(--otr-space-3);
+  height: 100%;
+  padding: var(--otr-space-4);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-sm);
+  color: var(--otr-color-text);
+  text-decoration: none;
+  transition: transform var(--otr-dur) var(--otr-ease), box-shadow var(--otr-dur) var(--otr-ease), border-color var(--otr-dur) var(--otr-ease);
+}
+.otr-faq-cat:hover { transform: translateY(-3px); box-shadow: var(--otr-shadow-md); border-color: var(--otr-color-accent-deep); color: var(--otr-color-text); }
+.otr-faq-cat__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--otr-color-dark);
+  color: var(--otr-color-accent);
+  font-size: var(--otr-fs-lg);
+}
+.otr-faq-cat__title { display: block; font-family: var(--otr-font-display); font-size: var(--otr-fs-lg); font-weight: var(--otr-fw-semibold); line-height: 1.25; }
+.otr-faq-cat__count { display: block; margin-top: 0.15rem; font-size: var(--otr-fs-sm); color: var(--otr-color-muted); }
+
+.otr-faq-search { margin: 0 0 var(--otr-space-5); }
+.otr-faq-search__status { min-height: 1.5rem; margin: var(--otr-space-2) var(--otr-space-3) 0; font-size: var(--otr-fs-sm); color: var(--otr-color-muted); }
+
+.otr-faq-group { margin-bottom: var(--otr-space-5); }
+.otr-faq-group[hidden] { display: none; }
+.otr-faq-group__title { position: relative; margin: 0 0 var(--otr-space-3); padding-bottom: var(--otr-space-2); font-size: var(--otr-fs-h3); }
+.otr-faq-group__title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 2.5rem; height: 2px; background: var(--otr-color-accent); }
+.otr-faq-group__title:focus { outline: 0; }
+
+.otr-accordion {
+  --bs-accordion-bg: var(--otr-color-surface);
+  --bs-accordion-color: var(--otr-color-text);
+  --bs-accordion-border-color: var(--otr-color-border);
+  --bs-accordion-border-radius: var(--otr-radius-md);
+  --bs-accordion-inner-border-radius: calc(var(--otr-radius-md) - 1px);
+  --bs-accordion-btn-color: var(--otr-color-text);
+  --bs-accordion-btn-bg: var(--otr-color-surface);
+  --bs-accordion-active-color: var(--otr-color-text);
+  --bs-accordion-active-bg: var(--otr-color-surface-alt);
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(var(--otr-gold-deep-rgb), 0.35);
+  --bs-accordion-btn-padding-y: var(--otr-space-3);
+  --bs-accordion-btn-padding-x: var(--otr-space-4);
+  --bs-accordion-body-padding-x: var(--otr-space-4);
+  box-shadow: var(--otr-shadow-sm);
+  border-radius: var(--otr-radius-md);
+}
+.otr-accordion .accordion-item[hidden] { display: none; }
+.otr-accordion .accordion-button { font-family: var(--otr-font-body); font-size: var(--otr-fs-md); font-weight: var(--otr-fw-semibold); }   /* questions read best in the UI sans */
+.otr-accordion .accordion-button:not(.collapsed) { box-shadow: inset 3px 0 0 var(--otr-color-accent); }
+.otr-accordion .accordion-body { line-height: 1.7; color: var(--otr-color-text); overflow-wrap: anywhere; }
+
+.otr-help {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--otr-space-4);
+  margin: var(--otr-space-6) 0 0;
+  padding: var(--otr-space-5);
+  background: var(--otr-color-dark);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-md);
+  color: var(--otr-color-on-dark-muted);
+}
+.otr-help__title { margin: 0 0 var(--otr-space-1); font-size: var(--otr-fs-h3); color: var(--otr-color-on-dark); }
+.otr-help__text { margin: 0; }
+.otr-help__actions { display: flex; flex-wrap: wrap; gap: var(--otr-space-3); }
+.otr-help :focus-visible { outline-color: var(--otr-color-focus-on-dark); }
+
+.otr-search__icon { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; margin-right: var(--otr-space-2); color: var(--otr-color-muted); }
+
+
+/* ==========================================================================
+   13. IMAGE FADE-IN
+   Poster and hero images fade in when they first render (pure CSS, no JS).
+   The dark poster frame / blurred fill is already behind them, so there is
+   never a white flash. Reduced motion is handled globally in base.css.
+   ========================================================================== */
+@keyframes otr-fade-in { from { opacity: 0; } to { opacity: 1; } }
+.otr-card__img,
+.otr-hero .osahan-slider-item img:not(.otr-hero__fill) {
+  animation: otr-fade-in var(--otr-dur-slow) var(--otr-ease) both;
+}
+
+
+/* ==========================================================================
+   14. CARD CALL TO ACTION, CATEGORY BADGE, PAGINATION
+   - .otr-card__foot: datetime on the left, gold "Get Tickets" on the right. The whole card is one
+     link, so the button is a visual affordance (a <span>), never a nested interactive element.
+     When the card is narrow (container query) the button drops under the datetime, full width.
+   - .otr-card__badge: small gold category pill on the poster (navy text, 7.7:1).
+   - .otr-pagination: Bootstrap 5 .pagination restyled (gold active page). Used on search.html.
+   ========================================================================== */
+.otr-card { container-type: inline-size; container-name: otr-card; }
+
+.otr-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--otr-space-2);
+  margin-top: var(--otr-space-1);
+}
+.otr-card__foot .otr-card__time { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.otr-card__cta { flex: 0 0 auto; pointer-events: none; }            /* the card link handles the click */
+.otr-card:hover .otr-card__cta { background: var(--otr-color-cta-hover); }
+
+@container otr-card (max-width: 340px) {
+  .otr-card__foot { flex-direction: column; align-items: stretch; gap: var(--otr-space-2); }
+  .otr-card__body { height: calc(var(--otr-card-body-h) + 40px); }
+}
+
+/* Straddles the ticket-stub tear line at the right, so it never covers poster text.
+   top = poster height (container width x 450/1210) minus a few px. */
+.otr-card__badge {
+  position: absolute;
+  top: calc(100cqw * 450 / 1210 - 9px);
+  right: var(--otr-space-3);
+  z-index: 3;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--otr-radius-pill);
+  background: var(--otr-color-accent);
+  color: var(--otr-color-on-cta);
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--otr-shadow-sm);
+}
+
+.otr-pagination-wrap { margin: var(--otr-space-5) 0 var(--otr-space-3); text-align: center; }
+.otr-pagination-wrap[hidden] { display: none; }
+.otr-pagination__info { margin: 0 0 var(--otr-space-3); font-size: var(--otr-fs-sm); color: var(--otr-color-muted); }
+.otr-pagination {
+  --bs-pagination-color: var(--otr-color-text);
+  --bs-pagination-bg: var(--otr-color-surface);
+  --bs-pagination-border-color: var(--otr-color-border-strong);
+  --bs-pagination-hover-color: var(--otr-color-text);
+  --bs-pagination-hover-bg: var(--otr-color-surface-alt);
+  --bs-pagination-hover-border-color: var(--otr-color-accent-deep);
+  --bs-pagination-focus-color: var(--otr-color-text);
+  --bs-pagination-focus-bg: var(--otr-color-surface-alt);
+  --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(var(--otr-gold-deep-rgb), 0.35);
+  --bs-pagination-active-color: var(--otr-color-on-cta);
+  --bs-pagination-active-bg: var(--otr-color-accent);
+  --bs-pagination-active-border-color: var(--otr-color-cta-border);
+  --bs-pagination-disabled-color: var(--otr-color-muted);
+  --bs-pagination-disabled-bg: var(--otr-color-surface-alt);
+  --bs-pagination-disabled-border-color: var(--otr-color-border);
+  --bs-pagination-font-size: var(--otr-fs-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--otr-space-2);
+  margin: 0;
+}
+.otr-pagination .page-link {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--otr-space-3);
+  margin-left: 0;
+  border-radius: var(--otr-radius-pill);
+  font-weight: var(--otr-fw-semibold);
+}
+.otr-pagination .page-item:not(:first-child) .page-link { margin-left: 0; }
+.otr-pagination .page-item:first-child .page-link,
+.otr-pagination .page-item:last-child .page-link { border-radius: var(--otr-radius-pill); }
+
+
+/* ==========================================================================
+   15. "WHY OPEN TICKETS" STRIP + SHARE ROW
+   - .otr-why: four facts taken from the live FAQs (tickets by email, wallet, secure payment, WhatsApp
+     support). Sits under the events grid on the home page, OUTSIDE #events-grid.
+   - .otr-share: WhatsApp / Facebook / copy-link buttons in the event header (see OT.share in main.js).
+   ========================================================================== */
+.otr-why { margin: var(--otr-space-7) 0 0; }
+.otr-why__title { margin: 0 0 var(--otr-space-4); font-size: var(--otr-fs-h3); text-align: center; }
+.otr-why__list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--otr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 576px) { .otr-why__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 992px) { .otr-why__list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.otr-why__item {
+  display: flex;
+  gap: var(--otr-space-3);
+  align-items: flex-start;
+  padding: var(--otr-space-4);
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border);
+  border-radius: var(--otr-radius-lg);
+  box-shadow: var(--otr-shadow-sm);
+}
+.otr-why__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--otr-color-dark);
+  color: var(--otr-color-accent);
+  font-size: var(--otr-fs-md);
+}
+.otr-why__item-title { margin: 0 0 var(--otr-space-1); font-size: var(--otr-fs-md); line-height: 1.3; }
+.otr-why__text { margin: 0; font-size: var(--otr-fs-sm); line-height: 1.55; color: var(--otr-color-muted); }
+.otr-why__text a { font-weight: var(--otr-fw-semibold); }
+
+.otr-event-head__share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--otr-space-2) var(--otr-space-3);
+  padding: var(--otr-space-3) var(--otr-space-4);
+  border-top: 1px solid var(--otr-color-border);
+  background: var(--otr-color-surface-alt);
+}
+.otr-share__label {
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--otr-color-muted);
+}
+.otr-share { display: flex; flex-wrap: wrap; gap: var(--otr-space-2); margin: 0; padding: 0; list-style: none; }
+.otr-share__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--otr-space-2);
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  background: var(--otr-color-surface);
+  border: 1px solid var(--otr-color-border-strong);
+  border-radius: var(--otr-radius-pill);
+  color: var(--otr-color-text);
+  font-size: var(--otr-fs-sm);
+  font-weight: var(--otr-fw-semibold);
+  text-decoration: none;
+  transition: background-color var(--otr-dur-fast) var(--otr-ease), border-color var(--otr-dur-fast) var(--otr-ease), color var(--otr-dur-fast) var(--otr-ease);
+}
+.otr-share__btn:hover { background: var(--otr-color-accent); border-color: var(--otr-color-cta-border); color: var(--otr-color-on-cta); }
