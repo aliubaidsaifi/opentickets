@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frequently Asked Questions — Open Tickets</title>
+  <link rel="icon" href="assets/images/logo/logo-gold.png">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <!-- DEMO ONLY — already provided by the live site, do not deploy -->
+  <link rel="stylesheet" href="assets/js/demo/slick.css">
+  <!-- Theme kit -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="otr-has-nav">
+  <a class="otr-skip" href="#main">Skip to content</a>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="otr-nav" id="otr-nav">
+    <div class="otr-nav__inner mx-auto px-3 px-lg-4">
+      <a class="otr-nav__brand" href="index.html" aria-label="Open Tickets home">
+        <img class="otr-nav__logo" src="assets/images/logo/logo-gold.png" alt="Open Tickets" width="286" height="150">
+      </a>
+
+      <form id="otr-nav-search" class="otr-nav__search" action="/search" method="GET" role="search">
+        <div class="otr-search">
+          <input type="text" name="q" id="nav-search-input" class="otr-search__input" placeholder="Search events, teams, venues…" aria-label="Search" autocomplete="off" value="">
+          <button class="otr-search__btn" type="submit" aria-label="Search"><i class="fas fa-search fa-sm" aria-hidden="true"></i></button>
+        </div>
+      </form>
+
+      <nav aria-label="Primary">
+        <ul class="otr-nav__links">
+          <li><a class="otr-nav__link" href="index.html">Events</a></li>
+          <li><a class="otr-nav__link" href="faqs.html" aria-current="page">FAQs</a></li>
+          <li><a class="otr-nav__link" href="https://opentickets.co.za/support">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="dropdown otr-dropdown otr-nav__lang">
+        <button class="otr-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-globe fa-sm" aria-hidden="true"></i><span>English</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item active" href="https://opentickets.co.za/language/en" aria-current="true">English</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/af">Afrikaans</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/zu">isiZulu</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/xh">isiXhosa</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/st">Sesotho</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/fr">Français</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/es">Español</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/pt">Português</a></li>
+        </ul>
+      </div>
+
+      <a class="btn otr-btn otr-btn--gold otr-btn--sm otr-nav__account" href="https://opentickets.co.za/bookings"><i class="far fa-user me-2" aria-hidden="true"></i>My Account</a>
+
+      <div class="otr-nav__actions">
+        <button class="otr-nav__icon-btn" id="otr-search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="otr-nav-search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <button class="otr-nav__icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#otr-offcanvas" aria-controls="otr-offcanvas" aria-label="Open menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="offcanvas offcanvas-end otr-offcanvas" tabindex="-1" id="otr-offcanvas" aria-labelledby="otr-offcanvas-title">
+    <div class="offcanvas-header">
+      <img src="assets/images/logo/logo-gold.png" alt="" width="286" height="150" style="height:2.25rem;width:auto">
+      <h2 class="visually-hidden" id="otr-offcanvas-title">Menu</h2>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="otr-offcanvas__list">
+        <li><a class="otr-offcanvas__link" href="index.html">Events</a></li>
+        <li><a class="otr-offcanvas__link" href="faqs.html" aria-current="page">FAQs</a></li>
+        <li><a class="otr-offcanvas__link" href="https://opentickets.co.za/support">Support</a></li>
+      </ul>
+      <p class="otr-offcanvas__label">Language</p>
+      <ul class="otr-offcanvas__langs"><li><a href="https://opentickets.co.za/language/en" aria-current="true">English</a></li><li><a href="https://opentickets.co.za/language/af">Afrikaans</a></li><li><a href="https://opentickets.co.za/language/zu">isiZulu</a></li><li><a href="https://opentickets.co.za/language/xh">isiXhosa</a></li><li><a href="https://opentickets.co.za/language/st">Sesotho</a></li><li><a href="https://opentickets.co.za/language/de">Deutsch</a></li><li><a href="https://opentickets.co.za/language/fr">Français</a></li><li><a href="https://opentickets.co.za/language/es">Español</a></li><li><a href="https://opentickets.co.za/language/pt">Português</a></li></ul>
+      <a class="btn otr-btn otr-btn--gold w-100 mt-4" href="https://opentickets.co.za/bookings"><i class="far fa-user me-2" aria-hidden="true"></i>My Account</a>
+    </div>
+  </div>
+
+  <main id="main" class="otr-main container pb-4">
+
+    <!-- HERO (live: hero-faqs.png above the heading) -->
+    <header class="otr-faq-hero">
+      <img class="otr-faq-hero__img" src="assets/images/banners/faq-hero.png" alt="" aria-hidden="true" width="1210" height="450">
+      <div class="otr-faq-hero__inner"><h1 class="otr-faq-hero__title">Frequently Asked Questions</h1></div>
+    </header>
+
+    <!-- CATEGORIES (live: five cards). Click scrolls to the group and opens its first question. -->
+    <nav aria-label="FAQ categories">
+      <ul class="otr-faq-cats">
+        <li><a class="otr-faq-cat" href="#faq-tickets-purchasing" data-faq-target="faq-tickets-purchasing">
+          <span class="otr-faq-cat__icon" aria-hidden="true"><i class="fas fa-question-circle"></i></span>
+          <span><span class="otr-faq-cat__title">Tickets &amp; Purchasing</span><span class="otr-faq-cat__count">2 questions</span></span>
+        </a></li>
+        <li><a class="otr-faq-cat" href="#faq-ticket-delivery-downloading-tickets" data-faq-target="faq-ticket-delivery-downloading-tickets">
+          <span class="otr-faq-cat__icon" aria-hidden="true"><i class="fas fa-question-circle"></i></span>
+          <span><span class="otr-faq-cat__title">Ticket Delivery &amp; Downloading Tickets</span><span class="otr-faq-cat__count">3 questions</span></span>
+        </a></li>
+        <li><a class="otr-faq-cat" href="#faq-account-profile" data-faq-target="faq-account-profile">
+          <span class="otr-faq-cat__icon" aria-hidden="true"><i class="fas fa-question-circle"></i></span>
+          <span><span class="otr-faq-cat__title">Account &amp; Profile</span><span class="otr-faq-cat__count">4 questions</span></span>
+        </a></li>
+        <li><a class="otr-faq-cat" href="#faq-general" data-faq-target="faq-general">
+          <span class="otr-faq-cat__icon" aria-hidden="true"><i class="fas fa-question-circle"></i></span>
+          <span><span class="otr-faq-cat__title">General</span><span class="otr-faq-cat__count">6 questions</span></span>
+        </a></li>
+        <li><a class="otr-faq-cat" href="#faq-football" data-faq-target="faq-football">
+          <span class="otr-faq-cat__icon" aria-hidden="true"><i class="fas fa-question-circle"></i></span>
+          <span><span class="otr-faq-cat__title">Football</span><span class="otr-faq-cat__count">4 questions</span></span>
+        </a></li>
+      </ul>
+    </nav>
+
+    <!-- LIVE SEARCH (vanilla JS, assets/js/faq.js) -->
+    <section class="otr-faq-search" aria-label="Search the FAQs">
+      <div class="otr-search otr-search--page">
+        <span class="otr-search__icon" aria-hidden="true"><i class="fas fa-search fa-sm"></i></span>
+        <input type="text" id="otr-faq-search" class="otr-search__input" placeholder="Search the FAQs…" aria-label="Search the FAQs" aria-controls="otr-faq-groups" autocomplete="off">
+        <button type="button" class="otr-search__clear" data-faq-clear aria-label="Clear search" hidden><i class="fas fa-times" aria-hidden="true"></i></button>
+      </div>
+      <p class="otr-faq-search__status" id="otr-faq-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- NO-MATCH STATE -->
+    <section class="otr-empty" id="otr-faq-empty" aria-labelledby="otr-faq-empty-title" hidden>
+      <span class="otr-empty__icon" aria-hidden="true"><i class="fas fa-search"></i></span>
+      <h2 class="otr-empty__title" id="otr-faq-empty-title">No matching questions</h2>
+      <p class="otr-empty__text">We couldn’t find an answer for “<span data-faq-query></span>”. Try another word, or ask our support team.</p>
+      <button type="button" class="btn otr-btn otr-btn--secondary" data-faq-clear>Clear search</button>
+    </section>
+
+    <!-- QUESTIONS, GROUPED BY CATEGORY (Bootstrap 5 accordion) -->
+    <div id="otr-faq-groups">
+
+    <section class="otr-faq-group" id="faq-tickets-purchasing" aria-labelledby="faq-tickets-purchasing-title" data-faq-group>
+      <h2 class="otr-faq-group__title" id="faq-tickets-purchasing-title" tabindex="-1" data-faq-title>Tickets &amp; Purchasing</h2>
+      <div class="accordion otr-accordion" id="faq-acc-tickets-purchasing">
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-tickets-purchasing-h0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-tickets-purchasing-c0" aria-expanded="false" aria-controls="faq-tickets-purchasing-c0">How can I book tickets?</button>
+          </h3>
+          <div id="faq-tickets-purchasing-c0" class="accordion-collapse collapse" aria-labelledby="faq-tickets-purchasing-h0" data-bs-parent="#faq-acc-tickets-purchasing">
+            <div class="accordion-body">
+              To book tickets, please locate the event you would like to attend, select the number of tickets you wish to purchase, and add them to your cart.<br />
+<br />
+If the event has allocated seating, please select your preferred seat(s) and the ticket category/price option you would like to purchase before adding them to your cart.<br />
+<br />
+Once you are ready, click Checkout, enter your details, and then click Purchase. You will be redirected to our secure online payment page to complete your transaction.<br />
+<br />
+Once payment has been successfully processed, your tickets will be sent to the email address provided during checkout.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-tickets-purchasing-h1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-tickets-purchasing-c1" aria-expanded="false" aria-controls="faq-tickets-purchasing-c1">Are there any tickets left for the event?</button>
+          </h3>
+          <div id="faq-tickets-purchasing-c1" class="accordion-collapse collapse" aria-labelledby="faq-tickets-purchasing-h1" data-bs-parent="#faq-acc-tickets-purchasing">
+            <div class="accordion-body">
+              If you are able to select a ticket and add it to your cart, tickets are still available for purchase. Please note that we do not display the number of tickets remaining for an event.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="otr-faq-group" id="faq-ticket-delivery-downloading-tickets" aria-labelledby="faq-ticket-delivery-downloading-tickets-title" data-faq-group>
+      <h2 class="otr-faq-group__title" id="faq-ticket-delivery-downloading-tickets-title" tabindex="-1" data-faq-title>Ticket Delivery &amp; Downloading Tickets</h2>
+      <div class="accordion otr-accordion" id="faq-acc-ticket-delivery-downloading-tickets">
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-ticket-delivery-downloading-tickets-h0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-ticket-delivery-downloading-tickets-c0" aria-expanded="false" aria-controls="faq-ticket-delivery-downloading-tickets-c0">How to Transfer Tickets?</button>
+          </h3>
+          <div id="faq-ticket-delivery-downloading-tickets-c0" class="accordion-collapse collapse" aria-labelledby="faq-ticket-delivery-downloading-tickets-h0" data-bs-parent="#faq-acc-ticket-delivery-downloading-tickets">
+            <div class="accordion-body">
+              To transfer your tickets, please follow these steps:<br />
+<br />
+1. Access your confirmation email containing your tickets.<br />
+2. Click the &quot;Transfer Tickets&quot; button.<br />
+3. Enter the recipient&#039;s email address and confirm the transfer.<br />
+4. Select the number of tickets you wish to transfer. <br />
+<br />
+The recipient will receive an email prompting them to complete the transfer. Please note that if they do not complete this process, the link will expire and the tickets will remain in your account.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-ticket-delivery-downloading-tickets-h1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-ticket-delivery-downloading-tickets-c1" aria-expanded="false" aria-controls="faq-ticket-delivery-downloading-tickets-c1">How to Transfer Tickets?</button>
+          </h3>
+          <div id="faq-ticket-delivery-downloading-tickets-c1" class="accordion-collapse collapse" aria-labelledby="faq-ticket-delivery-downloading-tickets-h1" data-bs-parent="#faq-acc-ticket-delivery-downloading-tickets">
+            <div class="accordion-body">
+              To transfer your tickets, please follow these steps:<br />
+<br />
+1. Access your confirmation email containing your tickets.<br />
+2. Click the &quot;Transfer Tickets&quot; button.<br />
+3. Enter the recipient&#039;s email address and confirm the transfer.<br />
+4. Select the number of tickets you wish to transfer. <br />
+<br />
+The recipient will receive an email prompting them to complete the transfer. Please note that if they do not complete this process, the link will expire and the tickets will remain in your account.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-ticket-delivery-downloading-tickets-h2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-ticket-delivery-downloading-tickets-c2" aria-expanded="false" aria-controls="faq-ticket-delivery-downloading-tickets-c2">I haven&#039;t recieved my tickets yet</button>
+          </h3>
+          <div id="faq-ticket-delivery-downloading-tickets-c2" class="accordion-collapse collapse" aria-labelledby="faq-ticket-delivery-downloading-tickets-h2" data-bs-parent="#faq-acc-ticket-delivery-downloading-tickets">
+            <div class="accordion-body">
+              When you purchase tickets, reminder emails will be sent to the email address provided during checkout:<br />
+<br />
+One week before the event<br />
+One day before the event<br />
+On the day of the event<br />
+<br />
+If you have not received your tickets, please check your inbox, spam, and junk folders before contacting us.<br />
+<br />
+If you require assistance with receiving your tickets, please contact our support team and provide the following details:<br />
+<br />
+Transaction number, if available<br />
+Full name of the person who made the purchase<br />
+Email address used during checkout<br />
+Phone number linked to the order<br />
+Name of the event for which the tickets were purchased<br />
+Number of tickets purchased<br />
+Ticket level or category purchased (e.g., Level 1, VIP, General Admission)<br />
+Platform used to purchase (Open Tickets or Computicket)<br />
+<br />
+Providing these details will help us locate your order and assist you as quickly as possible.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="otr-faq-group" id="faq-account-profile" aria-labelledby="faq-account-profile-title" data-faq-group>
+      <h2 class="otr-faq-group__title" id="faq-account-profile-title" tabindex="-1" data-faq-title>Account &amp; Profile</h2>
+      <div class="accordion otr-accordion" id="faq-acc-account-profile">
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-account-profile-h0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-account-profile-c0" aria-expanded="false" aria-controls="faq-account-profile-c0">How do I login to my Account?</button>
+          </h3>
+          <div id="faq-account-profile-c0" class="accordion-collapse collapse" aria-labelledby="faq-account-profile-h0" data-bs-parent="#faq-acc-account-profile">
+            <div class="accordion-body">
+              Please note that an account is automatically created for you when you purchase tickets. You do not need to create an account manually before making your purchase.<br />
+<br />
+You can simply proceed with your ticket purchase, and your tickets will automatically be linked to the account associated with the email address provided during checkout.<br />
+<br />
+Once you have completed your purchase, you can log in to your account using your email address. A “magic link” will be sent to your email inbox, which you can use to securely access your account.<br />
+<br />
+Once logged in, you will be able to:<br />
+<br />
+View your transactions and ticket purchases<br />
+Download your tickets<br />
+View the status of any approved refunds<br />
+<br />
+Please ensure that you have access to the email address used during your purchase, as this is where your magic link will be sent.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-account-profile-h1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-account-profile-c1" aria-expanded="false" aria-controls="faq-account-profile-c1">Why can I not download a PDF my football tickets?</button>
+          </h3>
+          <div id="faq-account-profile-c1" class="accordion-collapse collapse" aria-labelledby="faq-account-profile-h1" data-bs-parent="#faq-acc-account-profile">
+            <div class="accordion-body">
+              All football tickets sold online by Open Tickets are strictly digital. <br />
+<br />
+Tickets must be presented electronically and can not be printed. They can be displayed on a mobile device, added to Google Wallet or Apple Wallet, or downloaded as an HTML File on your device.<br />
+<br />
+No physical or printed tickets will be accepted at the venue.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-account-profile-h2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-account-profile-c2" aria-expanded="false" aria-controls="faq-account-profile-c2">How to create an account</button>
+          </h3>
+          <div id="faq-account-profile-c2" class="accordion-collapse collapse" aria-labelledby="faq-account-profile-h2" data-bs-parent="#faq-acc-account-profile">
+            <div class="accordion-body">
+              Please note that an account is automatically created for you when you purchase tickets. You do not need to create an account manually before making your purchase.<br />
+<br />
+You can simply proceed with your ticket purchase, and your tickets will automatically be linked to the account associated with the email address provided during checkout.<br />
+<br />
+Once you have completed your purchase, you can log in to your account using your email address. A “magic link” will be sent to your email inbox, which you can use to securely access your account.<br />
+<br />
+Once logged in, you will be able to:<br />
+<br />
+View your transactions and ticket purchases<br />
+Download your tickets<br />
+View the status of any approved refunds<br />
+<br />
+Please ensure that you have access to the email address used during your purchase, as this is where your magic link will be sent.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-account-profile-h3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-account-profile-c3" aria-expanded="false" aria-controls="faq-account-profile-c3">The website doesn&#039;t want to accept my password</button>
+          </h3>
+          <div id="faq-account-profile-c3" class="accordion-collapse collapse" aria-labelledby="faq-account-profile-h3" data-bs-parent="#faq-acc-account-profile">
+            <div class="accordion-body">
+              Please note that an account is automatically created for you when you purchase tickets. You do not need to create an account manually, and we do not use passwords to log in.<br />
+<br />
+To access your account, simply enter the email address you used when making your purchase. Please ensure that the email address is entered correctly and is spelled exactly as it was when you purchased your tickets.<br />
+<br />
+A “magic link” will then be sent to your email inbox. Click the link to securely access your account.<br />
+<br />
+If you do not receive the magic link, please check your spam or junk folder.<br />
+<br />
+If the email is still not received, it is likely that either:<br />
+<br />
+You are entering a different email address from the one used when making the purchase; or<br />
+The email address was entered incorrectly when the purchase was made.<br />
+<br />
+Once logged in, you will be able to:<br />
+<br />
+View your transactions and ticket purchases<br />
+Download your tickets<br />
+View the status of any approved refunds<br />
+<br />
+Please ensure that you have access to the email address used during your purchase, as this is where your magic link will be sent.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="otr-faq-group" id="faq-general" aria-labelledby="faq-general-title" data-faq-group>
+      <h2 class="otr-faq-group__title" id="faq-general-title" tabindex="-1" data-faq-title>General</h2>
+      <div class="accordion otr-accordion" id="faq-acc-general">
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-general-h0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-general-c0" aria-expanded="false" aria-controls="faq-general-c0">How do i view my ticket</button>
+          </h3>
+          <div id="faq-general-c0" class="accordion-collapse collapse" aria-labelledby="faq-general-h0" data-bs-parent="#faq-acc-general">
+            <div class="accordion-body">
+              Once your payment has been completed successfully, you will receive one email containing your order confirmation and ticket options.<br />
+<br />
+Scroll down in the email until you see the following buttons:<br />
+Add to Google Wallet<br />
+Add to Apple Wallet<br />
+📱 View Tickets Online<br />
+📄 Download PDF<br />
+🌐 Download HTML<br />
+<br />
+You can use any of these options to access your tickets:<br />
+View Tickets Online – Opens your tickets in your web browser where you can view and scan them.<br />
+Download PDF – Downloads a PDF copy of your tickets to your device.<br />
+Download HTML – Downloads an HTML version of your tickets that can be viewed in your browser.<br />
+Add to Google Wallet or Add to Apple Wallet – Saves your tickets directly to your mobile wallet for easy access on the day of the event.<br />
+<br />
+If you have purchased multiple tickets, all of your tickets will be available through the same email. When viewing your tickets online, you can scroll left or right to view each individual ticket.<br />
+If you are unable to locate your email, please check your Spam, Junk, or Promotions folder.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-general-h1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-general-c1" aria-expanded="false" aria-controls="faq-general-c1">Which outlets do you sell at?</button>
+          </h3>
+          <div id="faq-general-c1" class="accordion-collapse collapse" aria-labelledby="faq-general-h1" data-bs-parent="#faq-acc-general">
+            <div class="accordion-body">
+              Tickets are available for purchase online at opentickets.co.za. <br />
+<br />
+Alternatively, you can purchase tickets for specific events at any Shoprite, Checkers, or Usave outlet.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-general-h2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-general-c2" aria-expanded="false" aria-controls="faq-general-c2">Which outlets do you sell at?</button>
+          </h3>
+          <div id="faq-general-c2" class="accordion-collapse collapse" aria-labelledby="faq-general-h2" data-bs-parent="#faq-acc-general">
+            <div class="accordion-body">
+              Tickets are available for purchase online at opentickets.co.za. <br />
+<br />
+Alternatively, you can purchase tickets for selected events at any Shoprite, Checkers, or Usave outlet.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-general-h3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-general-c3" aria-expanded="false" aria-controls="faq-general-c3">Is There an Open Tickets App?</button>
+          </h3>
+          <div id="faq-general-c3" class="accordion-collapse collapse" aria-labelledby="faq-general-h3" data-bs-parent="#faq-acc-general">
+            <div class="accordion-body">
+              Open Tickets does not currently have an app at this time. Once your purchase has been successfully completed, your ticket will be sent to the email address provided during checkout.<br />
+<br />
+Please check your inbox (and your spam/junk folder) for the ticket email. You can download the ticket from there and present it on the day of the event for scanning.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-general-h4">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-general-c4" aria-expanded="false" aria-controls="faq-general-c4">Can I get notified when an event goes live?</button>
+          </h3>
+          <div id="faq-general-c4" class="accordion-collapse collapse" aria-labelledby="faq-general-h4" data-bs-parent="#faq-acc-general">
+            <div class="accordion-body">
+              Open Tickets does not currently have a notification system.<br />
+<br />
+Please keep an eye on our website for updates and information regarding when ticket sales go live.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-general-h5">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-general-c5" aria-expanded="false" aria-controls="faq-general-c5">What events are o this weekend?</button>
+          </h3>
+          <div id="faq-general-c5" class="accordion-collapse collapse" aria-labelledby="faq-general-h5" data-bs-parent="#faq-acc-general">
+            <div class="accordion-body">
+              If you would like to view events for this weekend, please check the events tab of the Open Tickets website.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="otr-faq-group" id="faq-football" aria-labelledby="faq-football-title" data-faq-group>
+      <h2 class="otr-faq-group__title" id="faq-football-title" tabindex="-1" data-faq-title>Football</h2>
+      <div class="accordion otr-accordion" id="faq-acc-football">
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-football-h0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-football-c0" aria-expanded="false" aria-controls="faq-football-c0">Does my child under the age of 6 need a ticket?</button>
+          </h3>
+          <div id="faq-football-c0" class="accordion-collapse collapse" aria-labelledby="faq-football-h0" data-bs-parent="#faq-acc-football">
+            <div class="accordion-body">
+              For all football matches, every attendee is required to have a valid ticket for entry, including children under the age of six.<br />
+<br />
+Please note that ticket requirements may vary depending on the event. We recommend checking the event description or contacting the event organiser if you are unsure.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-football-h1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-football-c1" aria-expanded="false" aria-controls="faq-football-c1">Where can I get my season card?</button>
+          </h3>
+          <div id="faq-football-c1" class="accordion-collapse collapse" aria-labelledby="faq-football-h1" data-bs-parent="#faq-acc-football">
+            <div class="accordion-body">
+              Good day,<br />
+<br />
+Please note that Orlando Pirates FC Season Cards are digital only. No physical card collection is required.<br />
+<br />
+Your season card will be available digitally and can be accessed using the details provided after purchase.<br />
+<br />
+If you experience any issues accessing your digital season card, please contact our support team for assistance.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-football-h2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-football-c2" aria-expanded="false" aria-controls="faq-football-c2">I want Soccer Tickets</button>
+          </h3>
+          <div id="faq-football-c2" class="accordion-collapse collapse" aria-labelledby="faq-football-h2" data-bs-parent="#faq-acc-football">
+            <div class="accordion-body">
+              Open Tickets sells tickets for selected home matches, including matches for Orlando Pirates, Mamelodi Sundowns, Richards Bay FC, as well as selected PSL and CAF matches.<br />
+<br />
+Please check our website for the matches that are currently available for purchase.<br />
+<br />
+If a match is not currently available on our website, we recommend checking the team’s official social media pages for information on when tickets will go on sale.<br />
+<br />
+If tickets for a particular match are not being sold through Open Tickets, please contact the official ticketing provider for that match directly.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" data-faq-item>
+          <h3 class="accordion-header" id="faq-football-h3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-football-c3" aria-expanded="false" aria-controls="faq-football-c3">MTN8 Final: Orlando Pirates and Mamelodi Sundowns at Moses Mabhida Stadium</button>
+          </h3>
+          <div id="faq-football-c3" class="accordion-collapse collapse" aria-labelledby="faq-football-h3" data-bs-parent="#faq-acc-football">
+            <div class="accordion-body">
+              Unfortunately, the MTN8 Final is now sold out, and we are no longer able to issue tickets for the event.<br />
+<br />
+While we understand that this may be disappointing, no additional tickets will be made available for public purchase.<br />
+<br />
+If you do not have a valid ticket, we kindly ask that you do not travel to the stadium, as entry will only be permitted to valid ticket holders, and you will be turned away at the gates.<br />
+<br />
+Thank you for your understanding.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- STILL NEED HELP? -->
+    <aside class="otr-help" aria-labelledby="otr-help-title">
+      <div>
+        <h2 class="otr-help__title" id="otr-help-title">Still need help?</h2>
+        <p class="otr-help__text">Our support team is happy to help.</p>
+      </div>
+      <div class="otr-help__actions">
+        <a class="btn otr-btn otr-btn--primary" href="https://opentickets.co.za/support"><i class="fas fa-life-ring me-2" aria-hidden="true"></i>Contact Support</a>
+        <a class="btn otr-btn otr-btn--gold" href="https://wa.me/27873307575" target="_blank" rel="noopener"><i class="fab fa-whatsapp me-2" aria-hidden="true"></i>WhatsApp</a>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="otr-footer">
+    <span class="otr-footer__wordmark" aria-hidden="true">Open Tickets</span>
+    <div class="otr-footer__inner container">
+      <a class="otr-footer__brand" href="index.html" aria-label="Open Tickets home"><img class="otr-footer__logo" src="assets/images/logo/logo-gold.png" alt="Open Tickets" width="286" height="150" loading="lazy"></a>
+      <div class="row gx-4 gy-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Get In Touch</h2>
+          <ul class="otr-footer__social">
+            <li><a href="https://www.instagram.com/opentickets" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/opentickets" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/OpenTicketsZA" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="https://wa.me/27873307575" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Support</h2>
+          <ul class="otr-footer__list">
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/support"><i class="fas fa-life-ring" aria-hidden="true"></i>Support</a></li>
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/plugins"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>CMS Plugins</a></li>
+            <li><a class="otr-footer__link" href="faqs.html"><i class="fas fa-question-circle" aria-hidden="true"></i>FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Legal</h2>
+          <ul class="otr-footer__list">
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/page/privacy-policy" target="_blank" rel="noopener"><i class="fas fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/page/terms-and-conditions" target="_blank" rel="noopener"><i class="fas fa-angle-right" aria-hidden="true"></i>Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Language</h2>
+          <div class="dropdown dropup otr-dropdown">
+            <button class="otr-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span>English</span></button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="https://opentickets.co.za/language/en" aria-current="true">English</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/af">Afrikaans</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/zu">isiZulu</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/xh">isiXhosa</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/st">Sesotho</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/fr">Français</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/es">Español</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/pt">Português</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="otr-footer__bottom mb-0"><i class="far fa-copyright me-1" aria-hidden="true"></i>2024-2026 - <a href="https://opentickets.co.za">Open Tickets</a> - All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ====================== CHAT BUTTON ====================== -->
+  <div class="otr-chat ot-chatbot ot-chatbot--floating">
+    <button type="button" class="otr-chat__launcher ot-chatbot__launcher btn btn-primary rounded-circle shadow" aria-label="Open chat">
+      <i class="fas fa-comments" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- Production scripts -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/faq.js" defer></script>
+
+  <!-- DEMO ONLY — already provided by the live site, do not deploy. (Search shim: nav search Enter goes to search.html?q=...) -->
+  <script src="assets/js/demo/search-shim.js" defer></script>
+</body>
+</html>

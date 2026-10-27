@@ -1,0 +1,158 @@
+/* ==========================================================================
+   base.css — fonts, Bootstrap 5 token mapping, element defaults
+   --------------------------------------------------------------------------
+   Load order: bootstrap.min.css → fontawesome → variables.css → base.css
+               → components.css → pages.css
+   No colour values here: everything comes from variables.css.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. FONTS — self-hosted woff2 (assets/fonts/), latin + latin-ext
+      latin-ext carries the Afrikaans / isiZulu diacritics (ê ë ô û š ž …)
+   ========================================================================== */
+
+/* Playfair Display — headings, date numerals */
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("../fonts/playfair-display-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("../fonts/playfair-display-latin-ext-600-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("../fonts/playfair-display-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("../fonts/playfair-display-latin-ext-700-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* Inter — UI and body */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/inter-latin-ext-400-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("../fonts/inter-latin-500-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("../fonts/inter-latin-ext-500-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("../fonts/inter-latin-600-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("../fonts/inter-latin-ext-600-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+
+/* ==========================================================================
+   2. BOOTSTRAP 5.3 TOKEN MAPPING
+      Point Bootstrap's own custom properties at our tokens so stock
+      components (offcanvas, dropdown, accordion, forms) inherit the theme.
+   ========================================================================== */
+:root {
+  --bs-body-font-family: var(--otr-font-body);
+  --bs-body-font-size: var(--otr-fs-md);
+  --bs-body-line-height: var(--otr-lh-body);
+  --bs-body-color: var(--otr-color-text);
+  --bs-body-bg: var(--otr-color-bg);
+  --bs-secondary-color: var(--otr-color-muted);
+  --bs-border-color: var(--otr-color-border);
+  --bs-border-radius: var(--otr-radius-md);
+  --bs-primary: var(--otr-color-primary);
+  --bs-primary-rgb: var(--otr-crimson-rgb);
+  --bs-link-color: var(--otr-color-primary);
+  --bs-link-color-rgb: var(--otr-crimson-rgb);
+  --bs-link-hover-color: var(--otr-color-primary-hover);
+  --bs-focus-ring-color: rgba(var(--otr-crimson-rgb), 0.35);
+}
+
+
+/* ==========================================================================
+   3. ELEMENT DEFAULTS
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--otr-nav-h-shrunk) + var(--otr-space-3));   /* anchors clear the fixed nav */
+}
+
+body {
+  font-family: var(--otr-font-body);
+  background: var(--otr-color-bg);
+  color: var(--otr-color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;                    /* belt and braces: no horizontal scroll */
+}
+
+/* Pages with the fixed nav reserve its (un-shrunk) height so nothing jumps */
+body.otr-has-nav { padding-top: var(--otr-nav-h); }
+
+/* Playfair defaults to old-style figures that bounce up and down ("Klub 600 2026", "4X4", "2026/27").
+   Force lining numerals on everything set in the display face. */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.otr-card__title, .otr-date__day, .otr-offcanvas__link, .otr-footer__title, .otr-buybar__amount {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--otr-font-display);
+  font-weight: var(--otr-fw-semibold);
+  line-height: var(--otr-lh-tight);
+  color: var(--otr-color-text);
+  letter-spacing: -0.01em;
+}
+h1, .h1 { font-size: var(--otr-fs-h1); }
+h2, .h2 { font-size: var(--otr-fs-h2); }
+h3, .h3 { font-size: var(--otr-fs-h3); }
+
+a { text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+img { max-width: 100%; }
+
+::selection { background: var(--otr-color-primary); color: var(--otr-color-on-primary); }
+
+
+/* ==========================================================================
+   4. ACCESSIBILITY
+   ========================================================================== */
+:focus-visible {
+  outline: 2px solid var(--otr-color-focus);
+  outline-offset: 3px;
+  border-radius: var(--otr-radius-sm);
+}
+
+/* Skip link — first focusable element on every page */
+.otr-skip {
+  position: fixed;
+  top: var(--otr-space-2);
+  left: var(--otr-space-2);
+  z-index: var(--otr-z-skip);
+  padding: var(--otr-space-2) var(--otr-space-3);
+  background: var(--otr-color-dark);
+  color: var(--otr-color-on-dark);
+  border-radius: var(--otr-radius-sm);
+  transform: translateY(-200%);
+}
+.otr-skip:focus { transform: none; color: var(--otr-color-on-dark); }
+
+.otr-eyebrow {
+  font-size: var(--otr-fs-xs);
+  font-weight: var(--otr-fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--otr-color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

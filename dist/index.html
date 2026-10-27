@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Tickets — Events</title>
+  <link rel="icon" href="assets/images/logo/logo-gold.png">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+  <!-- DEMO ONLY — already provided by the live site, do not deploy -->
+  <link rel="stylesheet" href="assets/js/demo/slick.css">
+  <!-- Theme kit -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="otr-has-nav">
+  <a class="otr-skip" href="#main">Skip to content</a>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="otr-nav" id="otr-nav">
+    <div class="otr-nav__inner mx-auto px-3 px-lg-4">
+      <a class="otr-nav__brand" href="index.html" aria-label="Open Tickets home">
+        <img class="otr-nav__logo" src="assets/images/logo/logo-gold.png" alt="Open Tickets" width="286" height="150">
+      </a>
+
+      <form id="otr-nav-search" class="otr-nav__search" action="/search" method="GET" role="search">
+        <div class="otr-search">
+          <input type="text" name="q" id="nav-search-input" class="otr-search__input" placeholder="Search events, teams, venues…" aria-label="Search" autocomplete="off" value="">
+          <button class="otr-search__btn" type="submit" aria-label="Search"><i class="fas fa-search fa-sm" aria-hidden="true"></i></button>
+        </div>
+      </form>
+
+      <nav aria-label="Primary">
+        <ul class="otr-nav__links">
+          <li><a class="otr-nav__link" href="index.html" aria-current="page">Events</a></li>
+          <li><a class="otr-nav__link" href="faqs.html">FAQs</a></li>
+          <li><a class="otr-nav__link" href="https://opentickets.co.za/support">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="dropdown otr-dropdown otr-nav__lang">
+        <button class="otr-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-globe fa-sm" aria-hidden="true"></i><span>English</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item active" href="https://opentickets.co.za/language/en" aria-current="true">English</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/af">Afrikaans</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/zu">isiZulu</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/xh">isiXhosa</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/st">Sesotho</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/fr">Français</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/es">Español</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/pt">Português</a></li>
+        </ul>
+      </div>
+
+      <a class="btn otr-btn otr-btn--gold otr-btn--sm otr-nav__account" href="https://opentickets.co.za/bookings"><i class="far fa-user me-2" aria-hidden="true"></i>My Account</a>
+
+      <div class="otr-nav__actions">
+        <button class="otr-nav__icon-btn" id="otr-search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="otr-nav-search"><i class="fas fa-search" aria-hidden="true"></i></button>
+        <button class="otr-nav__icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#otr-offcanvas" aria-controls="otr-offcanvas" aria-label="Open menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="offcanvas offcanvas-end otr-offcanvas" tabindex="-1" id="otr-offcanvas" aria-labelledby="otr-offcanvas-title">
+    <div class="offcanvas-header">
+      <img src="assets/images/logo/logo-gold.png" alt="" width="286" height="150" style="height:2.25rem;width:auto">
+      <h2 class="visually-hidden" id="otr-offcanvas-title">Menu</h2>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="otr-offcanvas__list">
+        <li><a class="otr-offcanvas__link" href="index.html" aria-current="page">Events</a></li>
+        <li><a class="otr-offcanvas__link" href="faqs.html">FAQs</a></li>
+        <li><a class="otr-offcanvas__link" href="https://opentickets.co.za/support">Support</a></li>
+      </ul>
+      <p class="otr-offcanvas__label">Language</p>
+      <ul class="otr-offcanvas__langs"><li><a href="https://opentickets.co.za/language/en" aria-current="true">English</a></li><li><a href="https://opentickets.co.za/language/af">Afrikaans</a></li><li><a href="https://opentickets.co.za/language/zu">isiZulu</a></li><li><a href="https://opentickets.co.za/language/xh">isiXhosa</a></li><li><a href="https://opentickets.co.za/language/st">Sesotho</a></li><li><a href="https://opentickets.co.za/language/de">Deutsch</a></li><li><a href="https://opentickets.co.za/language/fr">Français</a></li><li><a href="https://opentickets.co.za/language/es">Español</a></li><li><a href="https://opentickets.co.za/language/pt">Português</a></li></ul>
+      <a class="btn otr-btn otr-btn--gold w-100 mt-4" href="https://opentickets.co.za/bookings"><i class="far fa-user me-2" aria-hidden="true"></i>My Account</a>
+    </div>
+  </div>
+
+  <main id="main" class="otr-main container pb-4">
+
+    <!-- HERO — Alpine collapse wrapper copied character for character from reference/current-home.html -->
+    <div x-data="{ show: true }" 
+         x-on:filter-grid.window="show = ($event.detail.length < 3)"
+         x-show="show"
+         x-collapse.duration.800ms
+         x-transition:enter="transition ease-out duration-800"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-800"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        <div
+    x-data="{
+        startX: 0,
+        startY: 0,
+        dragging: false,
+        onPointerDown(event) {
+            this.startX = event.clientX;
+            this.startY = event.clientY;
+            this.dragging = false;
+        },
+        onPointerMove(event) {
+            if (event.buttons !== 1) {
+                return;
+            }
+
+            if (Math.abs(event.clientX - this.startX) > 10 || Math.abs(event.clientY - this.startY) > 10) {
+                this.dragging = true;
+            }
+        },
+        onClick(event) {
+            if (this.dragging) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+        },
+    }"
+    x-on:pointerdown="onPointerDown($event)"
+    x-on:pointermove="onPointerMove($event)"
+    x-on:click.capture="onClick($event)"
+    x-on:dragstart.prevent
+>
+    <div class="osahan-slider otr-hero">
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/appel-in-pe-banner.png" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/appel-in-pe-banner.png" draggable="false" class="img-fluid rounded" alt="Appel in PE" width="1210" height="450">
+            </a>
+        </div>
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/going-back-west-banner.png" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/going-back-west-banner.png" draggable="false" class="img-fluid rounded" alt="Going Back West" width="1210" height="450">
+            </a>
+        </div>
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/kaizer-chiefs-vs-ts-galaxy-fc-banner.jpg" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/kaizer-chiefs-vs-ts-galaxy-fc-banner.jpg" draggable="false" class="img-fluid rounded" alt="Kaizer Chiefs vs TS Galaxy FC (CKC)" width="1210" height="450">
+            </a>
+        </div>
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/durban-city-fc-vs-stellenbosch-fc-banner.jpg" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/durban-city-fc-vs-stellenbosch-fc-banner.jpg" draggable="false" class="img-fluid rounded" alt="Durban City FC vs Stellenbosch FC (CKC)" width="1210" height="450">
+            </a>
+        </div>
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/mamelodi-sundowns-vs-marumo-gallants-banner.jpg" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/mamelodi-sundowns-vs-marumo-gallants-banner.jpg" draggable="false" class="img-fluid rounded" alt="Mamelodi Sundowns vs Marumo Gallants (CKC)" width="1210" height="450">
+            </a>
+        </div>
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/orlando-pirates-vs-milford-fc-banner.jpg" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/orlando-pirates-vs-milford-fc-banner.jpg" draggable="false" class="img-fluid rounded" alt="Orlando Pirates vs Milford FC (CKC)" width="1210" height="450">
+            </a>
+        </div>
+        <div class="osahan-slider-item">
+            <a href="event.html" target="_self" draggable="false">
+                <img src="assets/images/banners/mamelodi-sundowns-vs-durban-city-banner.jpg" draggable="false" class="otr-hero__fill" alt="" aria-hidden="true" width="1210" height="450">
+                <img src="assets/images/banners/mamelodi-sundowns-vs-durban-city-banner.jpg" draggable="false" class="img-fluid rounded" alt="Mamelodi Sundowns vs Durban City" width="1210" height="450">
+            </a>
+        </div>
+    </div>
+    <style>
+        .osahan-slider a,
+        .osahan-slider img {
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+    </style>
+</div>
+
+        <!-- FEATURED STRIP — new child inside the collapse wrapper so it collapses while filtering -->
+        <section class="otr-featured" aria-labelledby="otr-featured-title">
+          <div class="otr-featured__head">
+            <span class="otr-label"><i class="fas fa-star" aria-hidden="true"></i>Featured</span>
+            <h2 class="otr-featured__title" id="otr-featured-title">Coming up</h2>
+          </div>
+          <ul class="otr-featured__list">
+          <li>
+            <div class="card e-card otr-card otr-card--compact">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/appel-in-pe.png" alt="" aria-hidden="true" width="1210" height="450">
+                  <img class="otr-card__img" src="assets/images/events/appel-in-pe.png" alt="Appel in PE" width="1210" height="450">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Music</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">06</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">Appel in PE</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Boardwalk Hotel and Casino</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="card e-card otr-card otr-card--compact">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg" alt="" aria-hidden="true" width="1210" height="450">
+                  <img class="otr-card__img" src="assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg" alt="Kaizer Chiefs vs TS Galaxy FC (CKC)" width="1210" height="450">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Football</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">27</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">Kaizer Chiefs vs TS Galaxy FC (CKC)</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>FNB Stadium</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="card e-card otr-card otr-card--compact">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/kempiefees-2026.jpg" alt="" aria-hidden="true" width="1210" height="450">
+                  <img class="otr-card__img" src="assets/images/events/kempiefees-2026.jpg" alt="KempieFees 2026" width="1210" height="450">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Festival</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">31</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">KempieFees 2026</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Hoërskool Kempton Park</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="card e-card otr-card otr-card--compact">
+              <a class="otr-card__link" href="event.html">
+                <div class="m-card-cover otr-card__cover">
+                  <img class="otr-card__fill" src="assets/images/events/black-swan-africa-extravaganza.png" alt="" aria-hidden="true" width="1210" height="450">
+                  <img class="otr-card__img" src="assets/images/events/black-swan-africa-extravaganza.png" alt="Black Swan Africa Extravaganza" width="1210" height="450">
+                </div>
+                <div class="otr-card__perf" aria-hidden="true"></div>
+                <span class="otr-card__badge">Show</span>
+                <div class="card-body otr-card__body">
+                  <div class="otr-date">
+                <span class="otr-date__day">07</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+                  <div class="otr-card__info">
+                    <h3 class="otr-card__title">Black Swan Africa Extravaganza</h3>
+                    <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Twin Trees</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          </ul>
+        </section>
+    </div>
+
+    <div class="otr-section-head">
+      <h2 class="otr-section-title">Events</h2>
+    </div>
+
+    <!-- EVENTS GRID — Alpine/Isotope attributes copied character for character from the reference.
+         Do NOT add gap/grid/flex/transform here or on .grid-item. -->
+    <div class="row" id="events-grid"
+     x-data="{
+        iso: null,
+        initIsotope() {
+            if (window.Isotope) {
+                this.iso = new window.Isotope(this.$el, {
+                    itemSelector: '.grid-item',
+                    layoutMode: 'fitRows'
+                });
+            } else {
+                // internal retry or simple fallback
+                setTimeout(() => {
+                    if(window.Isotope) {
+                        this.iso = new window.Isotope(this.$el, {
+                            itemSelector: '.grid-item',
+                            layoutMode: 'fitRows'
+                        });
+                    }
+                }, 500); 
+            }
+        },
+        filter(query) {
+            if(!this.iso) return;
+            query = query.toLowerCase();
+            this.iso.arrange({
+                filter: function() {
+                    const el = this;
+                    const queryLower = query.toLowerCase();
+                    if(queryLower.length < 3) return true;
+                    
+                    const name = el.getAttribute('data-name') || '';
+                    const venue = el.getAttribute('data-venue') || '';
+                    
+                    return name.includes(queryLower) || venue.includes(queryLower);
+                }
+            });
+        }
+     }"
+     x-init="initIsotope(); window.addEventListener('filter-grid', (e) => filter(e.detail))"
+>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="klub 600 2026 - lede aansluiting / hernuwing" data-venue="klub 600">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/klub-600-2026-lede-aansluiting-hernuwing.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/klub-600-2026-lede-aansluiting-hernuwing.jpg" alt="Klub 600 2026 - Lede Aansluiting / Hernuwing" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Club</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">01</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">JAN</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Klub 600 2026 - Lede Aansluiting / Hernuwing</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Klub 600</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-01-01, 08:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="orlando pirates fc 2026/27 season ticket" data-venue="orlando amstel arena">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/orlando-pirates-fc-2026-27-season-ticket.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/orlando-pirates-fc-2026-27-season-ticket.jpg" alt="Orlando Pirates FC 2026/27 Season Ticket" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">02</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">AUG</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Orlando Pirates FC 2026/27 Season Ticket</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Orlando Amstel Arena</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-08-02, 08:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="the sa 4x4 and outdoor show weekend" data-venue="sandringham farm">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/the-sa-4x4-and-outdoor-show-weekend.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/the-sa-4x4-and-outdoor-show-weekend.jpg" alt="The SA 4X4 and Outdoor Show WEEKEND" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Outdoor</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">23</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">The SA 4X4 and Outdoor Show WEEKEND</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Sandringham Farm</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-23, 12:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="the sa 4x4 and outdoor show sun" data-venue="sandringham farm">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/the-sa-4x4-and-outdoor-show-sun.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/the-sa-4x4-and-outdoor-show-sun.jpg" alt="The SA 4X4 and Outdoor Show SUN" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Outdoor</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">25</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">The SA 4X4 and Outdoor Show SUN</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Sandringham Farm</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-25, 09:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="kruger united fc vs amazulu fc (ckc)" data-venue="mbombela stadium">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/kruger-united-fc-vs-amazulu-fc.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/kruger-united-fc-vs-amazulu-fc.jpg" alt="Kruger United FC vs Amazulu FC (CKC)" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">25</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Kruger United FC vs Amazulu FC (CKC)</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Mbombela Stadium</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-25, 15:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="sekhukhune united fc vs richards bay fc (ckc)" data-venue="new peter mokaba stadium">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/sekhukhune-united-fc-vs-richards-bay-fc.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/sekhukhune-united-fc-vs-richards-bay-fc.jpg" alt="Sekhukhune United FC vs Richards Bay FC (CKC)" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">25</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Sekhukhune United FC vs Richards Bay FC (CKC)</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>New Peter Mokaba Stadium</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-25, 18:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="isr massa aflos" data-venue="hoërskool zwartkop">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/isr-massa-aflos.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/isr-massa-aflos.jpg" alt="ISR Massa Aflos" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">School</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">27</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">ISR Massa Aflos</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Hoërskool Zwartkop</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-27, 18:30</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="kaizer chiefs vs ts galaxy fc (ckc)" data-venue="fnb stadium">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/kaizer-chiefs-vs-ts-galaxy-fc.jpg" alt="Kaizer Chiefs vs TS Galaxy FC (CKC)" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">27</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Kaizer Chiefs vs TS Galaxy FC (CKC)</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>FNB Stadium</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-27, 19:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="mamelodi sundowns vs marumo gallants (ckc)" data-venue="loftus versfeld stadium">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/mamelodi-sundowns-vs-marumo-gallants.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/mamelodi-sundowns-vs-marumo-gallants.jpg" alt="Mamelodi Sundowns vs Marumo Gallants (CKC)" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">27</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Mamelodi Sundowns vs Marumo Gallants (CKC)</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Loftus Versfeld Stadium</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-27, 19:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="orlando pirates vs milford fc (ckc)" data-venue="orlando amstel arena">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/orlando-pirates-vs-milford-fc.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/orlando-pirates-vs-milford-fc.jpg" alt="Orlando Pirates vs Milford FC (CKC)" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">27</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Orlando Pirates vs Milford FC (CKC)</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Orlando Amstel Arena</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-27, 19:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="durban city fc vs stellenbosch fc (ckc)" data-venue="chatsworth stadium">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/durban-city-fc-vs-stellenbosch-fc.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/durban-city-fc-vs-stellenbosch-fc.jpg" alt="Durban City FC vs Stellenbosch FC (CKC)" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">28</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Durban City FC vs Stellenbosch FC (CKC)</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Chatsworth Stadium</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-28, 19:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="isr sewes en hoops" data-venue="hoërskool hartebeespoort">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/isr-sewes-en-hoops.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/isr-sewes-en-hoops.png" alt="ISR Sewes en Hoops" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">School</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">31</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">ISR Sewes en Hoops</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Hoërskool Hartebeespoor</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-31, 07:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="kempiefees 2026" data-venue="hoërskool kempton park">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/kempiefees-2026.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/kempiefees-2026.jpg" alt="KempieFees 2026" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Festival</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">31</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">KempieFees 2026</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Hoërskool Kempton Park</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-31, 12:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="mamelodi sundowns vs durban city" data-venue="royal bafokeng stadium">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/mamelodi-sundowns-vs-durban-city.jpg" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/mamelodi-sundowns-vs-durban-city.jpg" alt="Mamelodi Sundowns vs Durban City" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Football</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">31</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">OCT</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Mamelodi Sundowns vs Durban City</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Royal Bafokeng Stadium</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-10-31, 20:15</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="appel in pe" data-venue="boardwalk hotel and casino">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/appel-in-pe.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/appel-in-pe.png" alt="Appel in PE" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Music</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">06</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Appel in PE</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Boardwalk Hotel and Casino</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-11-06, 21:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="going back west" data-venue="tarlton international raceway">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/going-back-west.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/going-back-west.png" alt="Going Back West" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Music</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">07</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Going Back West</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Tarlton International Raceway</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-11-07, 13:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="black swan africa extravaganza" data-venue="twin trees">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/black-swan-africa-extravaganza.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/black-swan-africa-extravaganza.png" alt="Black Swan Africa Extravaganza" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Show</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">07</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Black Swan Africa Extravaganza</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Twin Trees</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-11-07, 17:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="prg senior old boys ete / lunch 2026" data-venue="markötter sports complex">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/prg-senior-old-boys-ete-lunch-2026.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/prg-senior-old-boys-ete-lunch-2026.png" alt="PRG Senior Old Boys Ete / Lunch 2026" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">School</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">13</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">PRG Senior Old Boys Ete / Lunch 2026</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Markötter Long Room</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-11-13, 12:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 mb-4 grid-item" data-name="help24 somer fees" data-venue="hoërskool florida">
+        <div class="card e-card otr-card">
+          <a class="otr-card__link" href="event.html">
+            <div class="m-card-cover otr-card__cover">
+              <img class="otr-card__fill" src="assets/images/events/help24-somer-fees.png" alt="" aria-hidden="true" width="1210" height="450" loading="lazy">
+              <img class="otr-card__img" src="assets/images/events/help24-somer-fees.png" alt="Help24 Somer Fees" width="1210" height="450" loading="lazy">
+            </div>
+            <div class="otr-card__perf" aria-hidden="true"></div>
+            <span class="otr-card__badge">Festival</span>
+            <div class="card-body otr-card__body">
+              <div class="otr-date">
+                <span class="otr-date__day">21</span>
+                <span class="otr-date__rule" aria-hidden="true"></span>
+                <span class="otr-date__month">NOV</span>
+              </div>
+              <div class="otr-card__info">
+                <h3 class="otr-card__title">Help24 Somer Fees</h3>
+                <p class="otr-card__meta otr-card__venue"><i class="fas fa-map-marker-alt fa-sm" aria-hidden="true"></i>Hoërskool Florida</p>
+                <div class="otr-card__foot"><p class="otr-card__meta otr-card__time">2026-11-21, 12:00</p><span class="btn otr-btn otr-btn--primary otr-btn--sm otr-card__cta">Get Tickets</span></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY OPEN TICKETS — suggested addition. Every line is taken from the live FAQs. Outside #events-grid. -->
+    <section class="otr-why" aria-labelledby="otr-why-title">
+      <h2 class="otr-why__title" id="otr-why-title">Why Open Tickets</h2>
+      <ul class="otr-why__list">
+        <li class="otr-why__item"><span class="otr-why__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span><div><h3 class="otr-why__item-title">Tickets by email</h3><p class="otr-why__text">Once payment goes through, your tickets arrive at the email address you gave at checkout.</p></div></li>
+        <li class="otr-why__item"><span class="otr-why__icon" aria-hidden="true"><i class="fas fa-wallet"></i></span><div><h3 class="otr-why__item-title">Phone wallet ready</h3><p class="otr-why__text">Add your tickets to Google Wallet or Apple Wallet, or download them as a PDF.</p></div></li>
+        <li class="otr-why__item"><span class="otr-why__icon" aria-hidden="true"><i class="fas fa-lock"></i></span><div><h3 class="otr-why__item-title">Secure online payment</h3><p class="otr-why__text">You are taken to our secure payment page to complete your purchase.</p></div></li>
+        <li class="otr-why__item"><span class="otr-why__icon" aria-hidden="true"><i class="fab fa-whatsapp"></i></span><div><h3 class="otr-why__item-title">Help when you need it</h3><p class="otr-why__text">Browse the <a href="faqs.html">FAQs</a> or <a href="https://wa.me/27873307575" target="_blank" rel="noopener">message us on WhatsApp</a>.</p></div></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="otr-footer">
+    <span class="otr-footer__wordmark" aria-hidden="true">Open Tickets</span>
+    <div class="otr-footer__inner container">
+      <a class="otr-footer__brand" href="index.html" aria-label="Open Tickets home"><img class="otr-footer__logo" src="assets/images/logo/logo-gold.png" alt="Open Tickets" width="286" height="150" loading="lazy"></a>
+      <div class="row gx-4 gy-5">
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Get In Touch</h2>
+          <ul class="otr-footer__social">
+            <li><a href="https://www.instagram.com/opentickets" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/opentickets" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/OpenTicketsZA" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="https://wa.me/27873307575" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Support</h2>
+          <ul class="otr-footer__list">
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/support"><i class="fas fa-life-ring" aria-hidden="true"></i>Support</a></li>
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/plugins"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>CMS Plugins</a></li>
+            <li><a class="otr-footer__link" href="faqs.html"><i class="fas fa-question-circle" aria-hidden="true"></i>FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Legal</h2>
+          <ul class="otr-footer__list">
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/page/privacy-policy" target="_blank" rel="noopener"><i class="fas fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
+            <li><a class="otr-footer__link" href="https://opentickets.co.za/page/terms-and-conditions" target="_blank" rel="noopener"><i class="fas fa-angle-right" aria-hidden="true"></i>Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <h2 class="otr-footer__title h4">Language</h2>
+          <div class="dropdown dropup otr-dropdown">
+            <button class="otr-lang-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span>English</span></button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item active" href="https://opentickets.co.za/language/en" aria-current="true">English</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/af">Afrikaans</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/zu">isiZulu</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/xh">isiXhosa</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/st">Sesotho</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/de">Deutsch</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/fr">Français</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/es">Español</a></li>
+          <li><a class="dropdown-item" href="https://opentickets.co.za/language/pt">Português</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="otr-footer__bottom mb-0"><i class="far fa-copyright me-1" aria-hidden="true"></i>2024-2026 - <a href="https://opentickets.co.za">Open Tickets</a> - All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ====================== CHAT BUTTON ====================== -->
+  <div class="otr-chat ot-chatbot ot-chatbot--floating">
+    <button type="button" class="otr-chat__launcher ot-chatbot__launcher btn btn-primary rounded-circle shadow" aria-label="Open chat">
+      <i class="fas fa-comments" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- Production scripts -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- DEMO ONLY — already provided by the live site, do not deploy.
+       ORDER MATTERS: jQuery before Isotope (the live filter callback uses `this`, which only works because
+       jQuery's .is(fn) calls it with the element — see README "Notes for developers").
+       Then Slick, search shim, Alpine collapse plugin, Alpine core. -->
+  <script src="assets/js/demo/jquery.min.js" defer></script>
+  <script src="assets/js/demo/isotope.pkgd.min.js" defer></script>
+  <script src="assets/js/demo/slick.min.js" defer></script>
+  <script src="assets/js/demo/slick-init.js" defer></script>
+  <script src="assets/js/demo/search-shim.js" defer></script>
+  <script src="assets/js/demo/alpine-collapse.min.js" defer></script>
+  <script src="assets/js/demo/alpine.min.js" defer></script>
+</body>
+</html>

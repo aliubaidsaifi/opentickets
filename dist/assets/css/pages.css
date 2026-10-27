@@ -1,0 +1,49 @@
+/* ==========================================================================
+   pages.css — page-level layout (spacing and page-only rules)
+   --------------------------------------------------------------------------
+   Reusable components live in components.css. Colours come from variables.css.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   HOME (index.html)
+   ========================================================================== */
+
+/* Section heading ("Events"): serif title with a short crimson rule */
+.otr-section-head { margin: var(--otr-space-5) 0 var(--otr-space-4); text-align: center; }
+.otr-section-title { position: relative; display: inline-block; margin: 0; padding-bottom: var(--otr-space-3); }
+.otr-section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--otr-color-accent);
+  transform: translateX(-50%);
+}
+
+/* Page container shared by all pages */
+.otr-main { max-width: var(--otr-container-max); }
+
+/* Hero + featured strip fade while the Alpine wrapper collapses.
+   The wrapper's own x-transition:* attributes are ignored by Alpine when x-collapse
+   is on the same element (x-collapse animates height only), so the fade is done
+   in CSS. x-collapse writes an inline "height: 0px" at the start of a collapse and
+   at the start of an expand; we fade the children in step with it. No attribute on
+   the wrapper is touched. If a future Alpine changes that inline style the hero
+   still collapses, it just stops fading. */
+.otr-main > [x-show] > * {
+  transition: opacity var(--otr-dur-slow) var(--otr-ease);
+}
+.otr-main > [x-show][style*="height: 0px"] > * {
+  opacity: 0;
+}
+
+
+/* ==========================================================================
+   EVENT (event.html)
+   ========================================================================== */
+.otr-event { padding-top: var(--otr-space-4); }
+.otr-section-head--start { text-align: left; }
+.otr-section-head--start .otr-section-title::after { left: 0; transform: none; }
